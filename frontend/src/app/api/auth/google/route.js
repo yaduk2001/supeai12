@@ -5,7 +5,7 @@ export async function POST(request) {
     const body = await request.json();
     
     // Forward the request to our backend
-    const response = await fetch('http://localhost:5000/auth/google', {
+    const response = await fetch('https://backend-0dlk.onrender.com/auth/google', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

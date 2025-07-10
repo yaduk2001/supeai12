@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 async function handleBackendResponse(response) {
   const contentType = response.headers.get('content-type');

@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import AuthContext from '../../../contexts/AuthContext'
 
 // Get backend URL from environment or default to localhost
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 export default function AuthCallbackPage() {
   const router = useRouter();

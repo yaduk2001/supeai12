@@ -8,7 +8,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { generateWelcomeMessage } from '../../utils/welcomeMessages';
 
 // Get backend URL from environment or default to localhost
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 export default function ChatPage() {
   const { user, loading } = useAuth();

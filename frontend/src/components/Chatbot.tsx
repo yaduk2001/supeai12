@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { generateWelcomeMessage } from '../utils/welcomeMessages';
 
 // Backend URL configuration
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 // Type definitions
 interface Message {
