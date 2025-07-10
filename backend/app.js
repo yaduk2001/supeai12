@@ -12,6 +12,7 @@ console.log('🔧 Environment Variables Check:');
 console.log('   OPENAI_API_KEY:', process.env.OPENAI_API_KEY ? `✅ Set (${process.env.OPENAI_API_KEY.substring(0, 20)}...)` : '❌ Missing');
 console.log('   PORT:', process.env.PORT || '5000 (default)');
 console.log('   NODE_ENV:', process.env.NODE_ENV || 'development (default)');
+console.log('   ALLOWED_ORIGINS:', process.env.ALLOWED_ORIGINS || 'Using defaults');
 console.log('FIREBASE_PROJECT_ID:', process.env.FIREBASE_PROJECT_ID);
 console.log('---');
 
@@ -19,9 +20,29 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(url => url.trim())
+  : [
+      'http://localhost:3000',
+      'https://supeai.onrender.com',
+      'https://www.supeai.onrender.com'
+    ];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
 
 app.use(express.json());
@@ -65,7 +86,7 @@ app.use('/auth', authRouter);
 // Start the server
 app.listen(PORT, async () => {
   console.log(`🚀 Server is running on port ${PORT}`);
-  console.log(`🌐 CORS enabled for http://localhost:3000`);
+  console.log(`🌐 CORS enabled for: ${allowedOrigins.join(', ')}`);
   console.log('---');
   console.log('🎯 API endpoints ready:');
   console.log(`   GET  http://localhost:${PORT}/api/ping`);
