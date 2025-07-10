@@ -1,0 +1,623 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import FuturisticBackground from '../components/FuturisticBackground';
+import UserMenu from '../components/UserMenu';
+
+export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+  const [currentText, setCurrentText] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Typing effect for hero subtitle
+  const typingTexts = [
+    "Supe AI delivers scalable, multilingual, real-time automation",
+    "Transform your business with cutting-edge AI technology",
+    "Intelligent solutions for the modern enterprise",
+    "Empowering enterprises with next-generation AI"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentText((prev) => (prev + 1) % typingTexts.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [typingTexts.length]);
+
+  // Animated counter hook
+  const useCountUp = (end, duration = 2000) => {
+    const [count, setCount] = useState(0);
+    const [ref, setRef] = useState(null);
+
+    useEffect(() => {
+      if (!ref) return;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            let start = 0;
+            const increment = end / (duration / 16);
+            
+            const timer = setInterval(() => {
+              start += increment;
+              if (start >= end) {
+                setCount(end);
+                clearInterval(timer);
+              } else {
+                setCount(Math.floor(start));
+              }
+            }, 16);
+          }
+        },
+        { threshold: 0.5 }
+      );
+      
+      observer.observe(ref);
+      return () => observer.disconnect();
+    }, [ref, end, duration]);
+
+    return [count, setRef];
+  };
+
+  const services = [
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 00-2-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: "AI Automation",
+      description: "Streamline workflows with intelligent automation powered by cutting-edge AI technology.",
+      gradient: "from-purple-500 to-pink-500",
+      features: ["Workflow Optimization", "Process Automation", "Smart Decision Making"],
+      color: "purple"
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      title: "Real-Time AI",
+      description: "Get instant insights and responses with our real-time AI processing capabilities.",
+      gradient: "from-cyan-500 to-blue-500",
+      features: ["Instant Processing", "Live Analytics", "Real-time Insights"],
+      color: "cyan"
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+      ),
+      title: "Multilingual AI",
+      description: "Break language barriers with our advanced multilingual AI that understands and responds in any language.",
+      gradient: "from-green-500 to-emerald-500",
+      features: ["50+ Languages", "Cultural Context", "Accurate Translation"],
+      color: "green"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "CTO, TechFlow Inc",
+      content: "Supe AI transformed our customer service operations. Response times improved by 80% while maintaining quality.",
+      avatar: "👩‍💼",
+      rating: 5
+    },
+    {
+      name: "Marcus Rodriguez",
+      role: "CEO, Global Solutions",
+      content: "The multilingual capabilities are incredible. We can now serve customers in 15 different languages seamlessly.",
+      avatar: "👨‍💼",
+      rating: 5
+    },
+    {
+      name: "Dr. Emily Watson",
+      role: "Head of AI, InnovateCorp",
+      content: "The real-time processing and automation features have revolutionized our workflow. Highly recommended!",
+      avatar: "👩‍🔬",
+      rating: 5
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0.0, 0.2, 1]
+      }
+    }
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const cardHoverVariants = {
+    hover: {
+      y: -10,
+      scale: 1.02,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const stats = [
+    { number: 99.9, label: "Uptime", icon: "⚡", suffix: "%" },
+    { number: 50, label: "Languages", icon: "🌐", suffix: "+" },
+    { number: 24, label: "Support", icon: "🛡️", suffix: "/7" },
+    { number: 10, label: "Faster", icon: "🚀", suffix: "x" }
+  ];
+  const countUp0 = useCountUp(stats[0].number);
+  const countUp1 = useCountUp(stats[1].number);
+  const countUp2 = useCountUp(stats[2].number);
+  const countUp3 = useCountUp(stats[3].number);
+  const countUpStates = [countUp0, countUp1, countUp2, countUp3];
+
+  return (
+    <div className="min-h-screen bg-gradient-primary overflow-hidden relative">
+      {/* Reusable Futuristic Background */}
+      <FuturisticBackground />
+
+      {/* Floating Elements */}
+      <motion.div
+        variants={floatingVariants}
+        animate="animate"
+        className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent-cyan rounded-full opacity-60 hidden lg:block"
+      />
+      <motion.div
+        variants={floatingVariants}
+        animate="animate"
+        style={{ animationDelay: '2s' }}
+        className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent-green rounded-full opacity-40 hidden lg:block"
+      />
+
+      {/* Header Navigation */}
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10"
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2 group">
+              <motion.div 
+                className="w-8 h-8 bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/80 rounded-lg flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </motion.div>
+              <span className="text-white font-bold text-xl group-hover:text-[#00FFC2] transition-colors">
+                Supe AI
+              </span>
+            </Link>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link href="/about" className="text-white hover:text-[#00FFC2] transition-colors">
+                About
+              </Link>
+              <Link href="/services" className="text-white hover:text-[#00FFC2] transition-colors">
+                Services
+              </Link>
+              <Link href="/contact" className="text-white hover:text-[#00FFC2] transition-colors">
+                Contact
+              </Link>
+              <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">
+                Chat
+              </Link>
+            </nav>
+
+            {/* User Menu */}
+            <UserMenu />
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center pt-16">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-6xl mx-auto"
+          >
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center px-6 py-3 bg-accent-cyan/10 border border-accent-cyan/20 rounded-full text-accent-cyan text-sm font-medium mb-8 backdrop-blur-sm"
+            >
+              <span className="w-2 h-2 bg-accent-cyan rounded-full mr-2 animate-pulse"></span>
+              AI-Powered Enterprise Solutions
+            </motion.div>
+
+            {/* Main Heading with Gradient Animation */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
+            >
+              <motion.span 
+                className="block"
+                animate={{ 
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+                style={{
+                  background: 'linear-gradient(90deg, #00FFC2, #005533, #00FFC2)',
+                  backgroundSize: '200% 200%',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                Transforming
+              </motion.span>
+              <span className="block text-gradient-primary drop-shadow-lg">Enterprises</span>
+              <span className="block">with AI</span>
+            </motion.h1>
+            
+            {/* Animated Subheading */}
+            <motion.div
+              variants={itemVariants}
+              className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto h-12 md:h-16 flex items-center justify-center"
+            >
+              <motion.p
+                key={currentText}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="absolute"
+              >
+                {typingTexts[currentText]}
+              </motion.p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <Link
+                  href="/test"
+                  className="btn-primary inline-block"
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <Link
+                  href="/chat"
+                  className="btn-secondary inline-block"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  Chat with AI
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <Link
+                  href="/contact"
+                  className="btn-outline inline-block"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap justify-center items-center gap-8 text-gray-400 text-sm"
+            >
+              <motion.div 
+                className="flex items-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                Trusted by 500+ companies
+              </motion.div>
+              <motion.div 
+                className="flex items-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                ISO 27001 Certified
+              </motion.div>
+              <motion.div 
+                className="flex items-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
+                99.9% Uptime SLA
+              </motion.div>
+            </motion.div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              variants={itemVariants}
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-white/60 hover:text-white cursor-pointer"
+                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+              >
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 lg:py-32 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Our <span className="text-gradient-primary">Capabilities</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Discover how our AI solutions can transform your business operations
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                variants={cardHoverVariants}
+                whileHover="hover"
+                className="group relative"
+              >
+                <div className="card-glow p-8 h-full relative overflow-hidden">
+                  {/* Gradient overlay on hover */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                  />
+                  
+                  <div className="relative z-10">
+                    {/* Animated Icon */}
+                    <motion.div
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: 5,
+                        transition: { duration: 0.3 }
+                      }}
+                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} mb-6 text-white shadow-lg`}
+                    >
+                      {service.icon}
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gradient-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+
+                    {/* Features List */}
+                    <div className="space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <motion.div
+                          key={featureIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
+                          viewport={{ once: true }}
+                          className="flex items-center text-sm text-gray-300"
+                        >
+                          <div className="w-2 h-2 bg-accent-cyan rounded-full mr-3" />
+                          {feature}
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* Hover effect line */}
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent-cyan to-accent-green"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: '100%' }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section with Animated Counters */}
+      <section className="py-20 lg:py-32 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+          >
+            {stats.map((stat, index) => {
+              const [count, setRef] = countUpStates[index];
+              return (
+                <motion.div
+                  key={index}
+                  ref={setRef}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <motion.div 
+                    className="text-4xl mb-2"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                    {count}{stat.suffix}
+                  </div>
+                  <div className="text-gray-300 text-sm">{stat.label}</div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 lg:py-32 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              What Our <span className="text-gradient-primary">Clients Say</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Trusted by industry leaders worldwide
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                variants={cardHoverVariants}
+                whileHover="hover"
+                className="card-glow p-8 rounded-2xl"
+              >
+                <div className="text-4xl mb-4">{testimonial.avatar}</div>
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400">⭐</span>
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-6 italic">&quot;{testimonial.content}&quot;</p>
+                <div>
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-400">{testimonial.role}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 lg:py-32 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to <span className="text-gradient-primary">Transform</span> Your Business?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join hundreds of companies already using Supe AI to revolutionize their operations
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/test" className="btn-primary">
+                Start Free Trial
+              </Link>
+              <Link href="/contact" className="btn-outline">
+                Schedule Demo
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-white/10">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400">
+            © 2024 Supe AI. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
