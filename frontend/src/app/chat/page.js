@@ -11,7 +11,7 @@ import { generateWelcomeMessage } from '../../utils/welcomeMessages';
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 export default function ChatPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -51,6 +51,15 @@ export default function ChatPage() {
     window.addEventListener('sidebar-toggle', handler);
     return () => window.removeEventListener('sidebar-toggle', handler);
   }, []);
+
+  // Auto-logout on unmount
+  useEffect(() => {
+    return () => {
+      if (user) {
+        logout();
+      }
+    };
+  }, [user, logout]);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
