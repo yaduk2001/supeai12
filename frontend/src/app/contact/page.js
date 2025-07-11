@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -196,49 +197,44 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-white mb-4">Contact Information</h3>
                 <div className="space-y-3">
                   <div className="flex items-center text-gray-300">
-                    <span className="text-2xl mr-3">📍</span>
-                    <span>123 AI Street, Tech City, TC 12345</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
                     <span className="text-2xl mr-3">📧</span>
-                    <span>contact@supeai.com</span>
+                    <a href="mailto:contact@supeai.in" className="hover:text-accent-cyan transition">contact@supeai.in</a>
                   </div>
                   <div className="flex items-center text-gray-300">
                     <span className="text-2xl mr-3">📱</span>
-                    <span>+1 (555) 123-4567</span>
+                    <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
+                  </div>
+                  <div className="flex items-center text-gray-300">
+                    <span className="text-2xl mr-3">💼</span>
+                    <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">LinkedIn</a>
+                  </div>
+                  <div className="flex items-center text-gray-300">
+                    <span className="text-2xl mr-3">💬</span>
+                    <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">Telegram</a>
                   </div>
                 </div>
               </div>
 
-              {/* QR Code Placeholder */}
+              {/* QR Code Section */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-                <h3 className="text-xl font-bold text-white mb-4">Scan QR Code</h3>
-                <div className="bg-white/20 rounded-lg p-8 mb-4">
-                  <div className="text-6xl mb-2">📱</div>
-                  <p className="text-gray-300 text-sm">QR Code Placeholder</p>
+                <h3 className="text-xl font-bold text-white mb-4">Scan Location QR</h3>
+                <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
+                  <QRCodeSVG
+                    value="https://goo.gl/maps/4kQn1Qk1Qk1Qk1Qk9"
+                    size={160}
+                    bgColor="#014421"
+                    fgColor="#00FF41"
+                    level="H"
+                    includeMargin={true}
+                  />
                 </div>
                 <p className="text-gray-300 text-sm">
-                  Scan to connect with us on mobile
+                  Scan to get location
                 </p>
               </div>
 
               {/* Social Links */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      whileHover={{ scale: 1.05 }}
-                      className="flex items-center justify-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 text-white"
-                    >
-                      <span className="text-xl mr-2">{social.icon}</span>
-                      <span className="text-sm font-medium">{social.label}</span>
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
+              {/* Remove or update the socialLinks array and its rendering if needed, since main contacts are now above. */}
             </motion.div>
           </div>
         </div>
@@ -271,7 +267,7 @@ export default function ContactPage() {
           >
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986532929688!3d40.69714941978941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.203707485823!2d76.2673043147716!3d9.93123289290939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514b0e6c2d%3A0x4c1e8e6e8e8e8e8e!2sKochi%2C%20Kerala%2C%20India!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
