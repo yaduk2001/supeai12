@@ -256,6 +256,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16">
         <div className="container mx-auto px-4 text-center relative z-10">
+          {/* Supe AI Logo */}
+          <img 
+            src="/images/20250709_145127_890.jpg" 
+            alt="Supe AI Logo" 
+            className="mx-auto mb-8 max-w-xs md:max-w-sm lg:max-w-md drop-shadow-xl rounded-lg bg-white/80 p-2"
+            style={{ background: 'rgba(255,255,255,0.7)', borderRadius: '1.5rem' }}
+          />
           <motion.div
             variants={containerVariants}
             initial="hidden"

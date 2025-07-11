@@ -33,11 +33,26 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
+    console.log('🔍 CORS check - Request origin:', origin);
+    console.log('🔍 CORS check - Allowed origins:', allowedOrigins);
+    
+    // Check for exact match
     if (allowedOrigins.indexOf(origin) !== -1) {
+      console.log('✅ CORS allowed for origin:', origin);
       callback(null, true);
     } else {
-      console.log('CORS blocked origin:', origin);
-      callback(new Error('Not allowed by CORS'));
+      // Check for case-insensitive match
+      const normalizedOrigin = origin.toLowerCase();
+      const normalizedAllowed = allowedOrigins.map(o => o.toLowerCase());
+      
+      if (normalizedAllowed.indexOf(normalizedOrigin) !== -1) {
+        console.log('✅ CORS allowed for origin (case-insensitive):', origin);
+        callback(null, true);
+      } else {
+        console.log('❌ CORS blocked origin:', origin);
+        console.log('❌ Allowed origins:', allowedOrigins);
+        callback(new Error('Not allowed by CORS'));
+      }
     }
   },
   credentials: true,
@@ -76,6 +91,16 @@ app.get('/', (req, res) => {
 // Ping route
 app.get('/api/ping', (req, res) => {
   res.json({ message: 'pong' });
+});
+
+// CORS test route
+app.get('/api/cors-test', (req, res) => {
+  res.json({ 
+    message: 'CORS test successful',
+    origin: req.headers.origin,
+    allowedOrigins: allowedOrigins,
+    timestamp: new Date().toISOString()
+  });
 });
 
 // API routes
