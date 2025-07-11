@@ -195,7 +195,7 @@ export default function ServicesPage() {
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
               <Link
-                href="/test"
+                href="/contact"
                 className="btn-primary"
               >
                 Try Our API
@@ -372,7 +372,7 @@ export default function ServicesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/test"
+                href="/contact"
                 className="btn-primary"
               >
                 Start Free Trial

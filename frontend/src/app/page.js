@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import FuturisticBackground from '../components/FuturisticBackground';
 import UserMenu from '../components/UserMenu';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -14,6 +15,7 @@ export default function Home() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const { user, logout } = useAuth();
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -256,6 +258,10 @@ export default function Home() {
               <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">Chat</Link>
             </nav>
 
+            {/* Auth Buttons (right side) */}
+            {/* Removed duplicate auth buttons. Only UserMenu is used for auth controls. */}
+            {/* <div className="hidden md:flex items-center space-x-2"> ... </div> */}
+
             {/* Mobile Menu Button */}
             <button
               className="md:hidden flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#00FFC2]"
@@ -360,7 +366,7 @@ export default function Home() {
                 className="relative"
               >
                 <Link
-                  href="/test"
+                  href="/auth/signup"
                   className="btn-primary inline-block"
                 >
                   Get Started

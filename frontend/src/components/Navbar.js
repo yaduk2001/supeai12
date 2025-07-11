@@ -41,13 +41,6 @@ export default function Navbar() {
     }
   };
 
-  const handleNavClick = (e, href) => {
-    if (window.location.pathname === '/chat' && window.__supeai_user_logged_in) {
-      e.preventDefault();
-      window.dispatchEvent(new CustomEvent('supeai-logout-modal', { detail: { href } }));
-    }
-  };
-
   return (
     <>
       {/* Hotspot to trigger sidebar */}
@@ -141,7 +134,7 @@ export default function Navbar() {
                       className={`relative flex items-center px-4 py-3 rounded-lg text-white/90 hover:bg-white/15 hover:text-accent-cyan transition-colors duration-200 w-full text-base font-semibold tracking-wide group ${
                         pathname === link.href ? 'bg-white/15 text-accent-cyan font-bold shadow-md' : ''
                       }`}
-                      onClick={e => handleNavClick(e, link.href)}
+                      // Removed onClick handler to allow normal navigation
                     >
                       {/* Left accent bar for active link */}
                       <span className={`absolute left-0 top-2 bottom-2 w-1 rounded bg-accent-cyan transition-all duration-200 ${pathname === link.href ? 'opacity-100' : 'opacity-0'}`}></span>
