@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="icon" href="/images/20250709_145127_890.jpg" type="image/jpeg" />
       </head>
       <body className="bg-gradient-primary font-sans antialiased relative overflow-x-hidden">
         <AuthProvider>

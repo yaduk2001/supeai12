@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import FuturisticBackground from '../components/FuturisticBackground';
 import UserMenu from '../components/UserMenu';
 
@@ -12,6 +12,20 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    function handleClick(e) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+        setMobileMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -234,26 +248,43 @@ export default function Home() {
               </span>
             </Link>
 
-            {/* Navigation */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-white hover:text-[#00FFC2] transition-colors">
-                About
-              </Link>
-              <Link href="/services" className="text-white hover:text-[#00FFC2] transition-colors">
-                Services
-              </Link>
-              <Link href="/contact" className="text-white hover:text-[#00FFC2] transition-colors">
-                Contact
-              </Link>
-              <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">
-                Chat
-              </Link>
+              <Link href="/about" className="text-white hover:text-[#00FFC2] transition-colors">About</Link>
+              <Link href="/services" className="text-white hover:text-[#00FFC2] transition-colors">Services</Link>
+              <Link href="/contact" className="text-white hover:text-[#00FFC2] transition-colors">Contact</Link>
+              <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">Chat</Link>
             </nav>
 
-            {/* User Menu */}
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#00FFC2]"
+              onClick={() => setMobileMenuOpen((v) => !v)}
+              aria-label="Open menu"
+            >
+              {/* Three dots icon */}
+              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <circle cx="5" cy="12" r="2" />
+                <circle cx="12" cy="12" r="2" />
+                <circle cx="19" cy="12" r="2" />
+              </svg>
+            </button>
+
+            {/* User Menu (unchanged) */}
             <UserMenu />
           </div>
         </div>
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div ref={mobileMenuRef} className="md:hidden absolute top-16 left-0 right-0 bg-black/90 border-b border-white/10 z-50 py-4 shadow-xl animate-fade-in">
+            <div className="flex flex-col items-center space-y-4">
+              <Link href="/about" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
+              <Link href="/services" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <Link href="/contact" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+              <Link href="/chat" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Chat</Link>
+            </div>
+          </div>
+        )}
       </motion.header>
 
       {/* Hero Section */}

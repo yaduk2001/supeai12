@@ -203,8 +203,9 @@ export function AuthProvider({ children }) {
       // Get the ID token
       const idToken = await user.getIdToken();
       
+      const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
       // Send the token to your backend
-      const response = await fetch('https://backend-0dlk.onrender.com/auth/google', {
+      const response = await fetch(`${BACKEND_URL}/auth/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
