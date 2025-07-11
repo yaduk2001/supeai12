@@ -42,8 +42,13 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const authPath = request.nextUrl.pathname.replace('/api/auth/', '');
-    const body = await request.json();
-    
+    let body = {};
+    try {
+      const text = await request.text();
+      body = text ? JSON.parse(text) : {};
+    } catch (e) {
+      body = {};
+    }
     const response = await fetch(`${BACKEND_URL}/auth/${authPath}`, {
       method: 'POST',
       headers: {
@@ -54,7 +59,6 @@ export async function POST(request) {
       body: JSON.stringify(body),
       credentials: 'include'
     });
-
     return await handleBackendResponse(response);
   } catch (error) {
     console.error('Auth proxy error:', error);
@@ -68,8 +72,13 @@ export async function POST(request) {
 export async function PUT(request) {
   try {
     const authPath = request.nextUrl.pathname.replace('/api/auth/', '');
-    const body = await request.json();
-    
+    let body = {};
+    try {
+      const text = await request.text();
+      body = text ? JSON.parse(text) : {};
+    } catch (e) {
+      body = {};
+    }
     const response = await fetch(`${BACKEND_URL}/auth/${authPath}`, {
       method: 'PUT',
       headers: {
@@ -80,7 +89,6 @@ export async function PUT(request) {
       body: JSON.stringify(body),
       credentials: 'include'
     });
-
     return await handleBackendResponse(response);
   } catch (error) {
     console.error('Auth proxy error:', error);

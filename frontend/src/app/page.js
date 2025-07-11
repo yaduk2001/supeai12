@@ -219,12 +219,15 @@ export default function Home() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
               <motion.div 
-                className="w-8 h-8 bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/80 rounded-lg flex items-center justify-center"
+                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <img 
+                  src="/images/20250709_145127_890.jpg" 
+                  alt="Supe AI Logo" 
+                  className="w-full h-full object-contain rounded-lg"
+                  style={{ maxHeight: '2.5rem', background: 'white' }}
+                />
               </motion.div>
               <span className="text-white font-bold text-xl group-hover:text-[#00FFC2] transition-colors">
                 Supe AI
@@ -257,12 +260,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center pt-16">
         <div className="container mx-auto px-4 text-center relative z-10">
           {/* Supe AI Logo */}
-          <img 
-            src="/images/20250709_145127_890.jpg" 
-            alt="Supe AI Logo" 
-            className="mx-auto mb-8 max-w-xs md:max-w-sm lg:max-w-md drop-shadow-xl rounded-lg bg-white/80 p-2"
-            style={{ background: 'rgba(255,255,255,0.7)', borderRadius: '1.5rem' }}
-          />
+          {/* Remove the logo from the hero section (center of the page) */}
           <motion.div
             variants={containerVariants}
             initial="hidden"

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import { useAuth } from '../../contexts/AuthContext';
 import { generateWelcomeMessage } from '../../utils/welcomeMessages';
+import { useRouter } from 'next/navigation';
 
 // Get backend URL from environment or default to localhost
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
@@ -19,6 +20,9 @@ export default function ChatPage() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [pendingNavigation, setPendingNavigation] = useState(null);
+  const router = useRouter();
 
   // Initialize welcome message based on user authentication status
   useEffect(() => {
@@ -52,14 +56,72 @@ export default function ChatPage() {
     return () => window.removeEventListener('sidebar-toggle', handler);
   }, []);
 
-  // Auto-logout on unmount
+  // Improved navigation interception
+  const [blockNavigation, setBlockNavigation] = useState(false);
+
   useEffect(() => {
-    return () => {
-      if (user) {
-        logout();
+    if (!user) return;
+    const handleRouteChange = (url) => {
+      if (url !== '/chat' && !blockNavigation) {
+        setShowLogoutModal(true);
+        setPendingNavigation(url);
+        setBlockNavigation(true);
+        throw 'Abort route change for logout modal';
       }
     };
-  }, [user, logout]);
+    router.events?.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events?.off('routeChangeStart', handleRouteChange);
+    };
+  }, [user, router, blockNavigation]);
+
+  useEffect(() => {
+    // Keep a global flag for navbar to check login state
+    window.__supeai_user_logged_in = !!user;
+  }, [user]);
+
+  // Listen for custom logout modal event from navbar
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.detail && e.detail.href) {
+        setShowLogoutModal(true);
+        setPendingNavigation(e.detail.href);
+        setBlockNavigation(true);
+      }
+    };
+    window.addEventListener('supeai-logout-modal', handler);
+    return () => window.removeEventListener('supeai-logout-modal', handler);
+  }, []);
+
+  // Intercept browser back/forward navigation
+  useEffect(() => {
+    if (!user) return;
+    const onPopState = (e) => {
+      if (window.location.pathname !== '/chat' && !blockNavigation) {
+        setShowLogoutModal(true);
+        setPendingNavigation(window.location.pathname);
+        setBlockNavigation(true);
+        window.history.pushState(null, '', '/chat'); // Stay on chat until user confirms
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [user, blockNavigation]);
+
+  const confirmLogout = async () => {
+    await logout();
+    setShowLogoutModal(false);
+    setBlockNavigation(false);
+    if (pendingNavigation) {
+      router.push(pendingNavigation);
+    }
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
+    setPendingNavigation(null);
+    setBlockNavigation(false);
+  };
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
@@ -136,8 +198,15 @@ export default function ChatPage() {
     return `${hours}:${minutes}`;
   };
 
-  // Show loading state while checking authentication
-  if (loading) {
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace('/auth/login');
+    }
+  }, [user, loading, router]);
+
+  // Show loading state while checking authentication or redirecting
+  if (loading || (!user && typeof window !== 'undefined')) {
     return (
       <>
         <Navbar />
@@ -157,6 +226,29 @@ export default function ChatPage() {
   return (
     <>
       <Navbar />
+      {/* Logout Modal */}
+      {showLogoutModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full text-center">
+            <h2 className="text-xl font-bold mb-4 text-gray-900">Logout?</h2>
+            <p className="mb-6 text-gray-700">Do you want to logout before leaving the chat page?</p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={confirmLogout}
+                className="px-6 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition"
+              >
+                Logout
+              </button>
+              <button
+                onClick={cancelLogout}
+                className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className={`min-h-screen bg-gradient-to-br from-[#051A05] via-[#0A2A0A] to-[#051A05] transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''}`}>
         {/* Chat Container */}
         <div className="max-w-4xl mx-auto px-6 py-8">

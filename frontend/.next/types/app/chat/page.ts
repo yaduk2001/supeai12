@@ -1,4 +1,4 @@
-// File: D:\supe1\frontend\src\app\chat\page.js
+// File: S:\supe1\supe1\frontend\src\app\chat\page.js
 import * as entry from '../../../../src/app/chat/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
