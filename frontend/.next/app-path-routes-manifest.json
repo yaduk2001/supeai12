@@ -1,15 +1,15 @@
 {
-  "/api/auth/[...auth]/route": "/api/auth/[...auth]",
   "/_not-found/page": "/_not-found",
+  "/api/auth/[...auth]/route": "/api/auth/[...auth]",
   "/api/auth/google/route": "/api/auth/google",
   "/api/chat/route": "/api/chat",
   "/favicon.ico/route": "/favicon.ico",
   "/about/page": "/about",
-  "/chat/page": "/chat",
-  "/page": "/",
   "/auth/login/page": "/auth/login",
-  "/auth/callback/page": "/auth/callback",
-  "/services/page": "/services",
   "/auth/signup/page": "/auth/signup",
-  "/contact/page": "/contact"
+  "/auth/callback/page": "/auth/callback",
+  "/chat/page": "/chat",
+  "/contact/page": "/contact",
+  "/page": "/",
+  "/services/page": "/services"
 }

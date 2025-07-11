@@ -27,6 +27,8 @@ export default function SignupPage() {
     hasNumber: false,
     hasSpecialChar: false
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
   const { signUp } = useAuth();
 
@@ -136,12 +138,15 @@ export default function SignupPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6 group">
               <motion.div 
-                className="w-10 h-10 bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/80 rounded-lg flex items-center justify-center"
+                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
-                <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <img 
+                  src="/images/20250709_145127_890.jpg" 
+                  alt="Supe AI Logo" 
+                  className="w-full h-full object-contain rounded-lg"
+                  style={{ maxHeight: '2.5rem', background: 'white' }}
+                />
               </motion.div>
               <span className="text-white font-bold text-2xl group-hover:text-[#00FFC2] transition-colors">
                 Supe AI
@@ -242,22 +247,45 @@ export default function SignupPage() {
               </div>
 
               {/* Password Field */}
-              <div>
+              <div className="relative">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                   Password
                 </label>
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={handleChange}
                   onFocus={handlePasswordFocus}
                   onBlur={handlePasswordBlur}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300 pr-12"
                   placeholder="Create a password"
                 />
+                {/* Eye Icon */}
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  onClick={() => setShowPassword((v) => !v)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan hover:text-[#00FFC2] focus:outline-none"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" strokeDasharray="2 2" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  ) : (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                      <line x1="4" y1="20" x2="20" y2="4" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  )}
+                </button>
                 {/* Password Requirements */}
                 <div className={`mt-2 space-y-2 transition-all duration-300 ${shouldShowRequirements ? 'opacity-100 max-h-[200px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
                   <div className="text-sm text-gray-400 mb-1">Password must contain:</div>
@@ -281,20 +309,43 @@ export default function SignupPage() {
               </div>
 
               {/* Confirm Password Field */}
-              <div>
+              <div className="relative">
                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
                   Confirm Password
                 </label>
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
-                  type="password"
+                  type={showConfirmPassword ? 'text' : 'password'}
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300 pr-12"
                   placeholder="Confirm your password"
                 />
+                {/* Eye Icon */}
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  onClick={() => setShowConfirmPassword((v) => !v)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan hover:text-[#00FFC2] focus:outline-none"
+                  aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showConfirmPassword ? (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" strokeDasharray="2 2" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  ) : (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                      <line x1="4" y1="20" x2="20" y2="4" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  )}
+                </button>
               </div>
 
               {/* Error/Success Messages */}

@@ -10,6 +10,7 @@ import Navbar from '../../../components/Navbar';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -66,12 +67,15 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6 group">
               <motion.div 
-                className="w-10 h-10 bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/80 rounded-lg flex items-center justify-center"
+                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
-                <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <img 
+                  src="/images/20250709_145127_890.jpg" 
+                  alt="Supe AI Logo" 
+                  className="w-full h-full object-contain rounded-lg"
+                  style={{ maxHeight: '2.5rem', background: 'white' }}
+                />
               </motion.div>
               <span className="text-white font-bold text-2xl group-hover:text-[#00FFC2] transition-colors">
                 Supe AI
@@ -106,19 +110,43 @@ export default function LoginPage() {
               </div>
 
               {/* Password Field */}
-              <div>
+              <div className="relative">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                   Password
                 </label>
                 <input
                   id="password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300 pr-12"
                   placeholder="Enter your password"
                 />
+                {/* AI-inspired Eye Icon */}
+                <button
+                  type="button"
+                  tabIndex={-1}
+                  onClick={() => setShowPassword((v) => !v)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan hover:text-[#00FFC2] focus:outline-none"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {/* AI-inspired eye icon (eye with circuit lines) */}
+                  {showPassword ? (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" strokeDasharray="2 2" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  ) : (
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="12" rx="7" ry="5" />
+                      <circle cx="12" cy="12" r="2.5" fill="#00FFC2" stroke="#00FFC2" />
+                      <path d="M12 7V5M12 19v-2M7 12H5M19 12h-2M8.5 8.5l-1.5-1.5M15.5 15.5l1.5 1.5M8.5 15.5l-1.5 1.5M15.5 8.5l1.5-1.5" stroke="#00FFC2" strokeWidth="1.2" />
+                      <line x1="4" y1="20" x2="20" y2="4" stroke="#00FFC2" strokeWidth="1.2" />
+                    </svg>
+                  )}
+                </button>
               </div>
 
               {/* Error/Success Messages */}
