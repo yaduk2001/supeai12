@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter, useSearchParams } from 'next/navigation';
-import AuthContext from '../../../contexts/AuthContext'
+import { useAuth } from '../../../contexts/AuthContext'
 
-// Get backend URL from environment or default to localhost
+// Get backend URL from environment or defalt
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-0dlk.onrender.com';
 
 export default function AuthCallbackPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { refreshUser } = AuthContext();
+  const { refreshUser } = useAuth();
   const [status, setStatus] = useState('Processing authentication...');
   const [error, setError] = useState('');
 

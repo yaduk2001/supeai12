@@ -5,11 +5,11 @@
   "/api/auth/google/route": "/api/auth/google",
   "/favicon.ico/route": "/favicon.ico",
   "/auth/callback/page": "/auth/callback",
-  "/about/page": "/about",
   "/auth/login/page": "/auth/login",
-  "/services/page": "/services",
-  "/page": "/",
+  "/about/page": "/about",
   "/chat/page": "/chat",
   "/auth/signup/page": "/auth/signup",
-  "/contact/page": "/contact"
+  "/contact/page": "/contact",
+  "/page": "/",
+  "/services/page": "/services"
 }
