@@ -22,7 +22,7 @@ export default function ContactPage() {
   }, []);
 
   const socialLinks = [
-    { icon: "📧", label: "Email", href: "mailto:contact@supeai.com" },
+    { icon: "📧", label: "Email", href: "mailto:thesupeai@gmail.com" },
     { icon: "📱", label: "Phone", href: "tel:+1234567890" },
     { icon: "💼", label: "LinkedIn", href: "#" },
     { icon: "🐦", label: "Twitter", href: "#" },
