@@ -218,16 +218,16 @@ export default function ContactPage() {
               {/* QR Code Section */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
                 <h3 className="text-xl font-bold text-white mb-4">Scan Location QR</h3>
-                <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
-                  <QRCodeSVG
-                    value="https://goo.gl/maps/4kQn1Qk1Qk1Qk1Qk9"
-                    size={160}
-                    bgColor="#014421"
-                    fgColor="#00FF41"
-                    level="H"
-                    includeMargin={true}
-                  />
-                </div>
+                              <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
+                <QRCodeSVG
+                  value="https://maps.google.com/?q=Infopark+Phase+2+Kochi+Kerala+India"
+                  size={160}
+                  bgColor="#014421"
+                  fgColor="#00FF41"
+                  level="H"
+                  includeMargin={true}
+                />
+              </div>
                 <p className="text-gray-300 text-sm">
                   Scan to get location
                 </p>
@@ -267,14 +267,14 @@ export default function ContactPage() {
           >
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.203707485823!2d76.2673043147716!3d9.93123289290939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514b0e6c2d%3A0x4c1e8e6e8e8e8e8e!2sKochi%2C%20Kerala%2C%20India!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.203707485823!2d76.2673043147716!3d9.93123289290939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514b0e6c2d%3A0x4c1e8e6e8e8e8e8e!2sInfopark+Phase+2%2C+Kochi%2C+Kerala%2C+India!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Supe AI Location"
+                title="Supe AI Location - Infopark Phase 2 Kochi"
               ></iframe>
             </div>
           </motion.div>
