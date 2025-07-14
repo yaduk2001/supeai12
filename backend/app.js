@@ -25,7 +25,8 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   : [
       'http://localhost:3000',
       'https://supeai.onrender.com',
-      'https://www.supeai.onrender.com'
+      'https://www.supeai.onrender.com',
+      'https://supeai-seven.vercel.app',
     ];
 
 app.use(cors({
