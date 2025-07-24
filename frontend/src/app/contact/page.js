@@ -196,20 +196,26 @@ export default function ContactPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <h3 className="text-xl font-bold text-white mb-4">Contact Information</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-300">
-                    <span className="text-2xl mr-3">📧</span>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">📧</span>
                     <a href="mailto:contact@supeai.in" className="hover:text-accent-cyan transition">contact@supeai.in</a>
                   </div>
-                  <div className="flex items-center text-gray-300">
-                    <span className="text-2xl mr-3">📱</span>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">📱</span>
                     <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
+                    <span className="ml-2 text-xs text-accent-cyan">Business Development Manager</span>
                   </div>
-                  <div className="flex items-center text-gray-300">
-                    <span className="text-2xl mr-3">💼</span>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">🌐</span>
+                    <a href="tel:+447404465149" className="hover:text-accent-cyan transition">+44 7404 465149</a>
+                    <span className="ml-2 text-xs text-accent-cyan">Sydney Office</span>
+                  </div>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">💼</span>
                     <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">LinkedIn</a>
                   </div>
-                  <div className="flex items-center text-gray-300">
-                    <span className="text-2xl mr-3">💬</span>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">💬</span>
                     <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">Telegram</a>
                   </div>
                 </div>
@@ -218,19 +224,26 @@ export default function ContactPage() {
               {/* QR Code Section */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
                 <h3 className="text-xl font-bold text-white mb-4">Scan Location QR</h3>
-                              <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
-                <QRCodeSVG
-                  value="https://maps.google.com/?q=Infopark+Phase+2+Kochi+Kerala+India"
-                  size={160}
-                  bgColor="#014421"
-                  fgColor="#00FF41"
-                  level="H"
-                  includeMargin={true}
-                />
-              </div>
+                <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
+                  <QRCodeSVG
+                    value="https://maps.google.com/?q=Kochi+Kerala+India"
+                    size={160}
+                    bgColor="#014421"
+                    fgColor="#00FF41"
+                    level="H"
+                    includeMargin={true}
+                  />
+                </div>
                 <p className="text-gray-300 text-sm">
                   Scan to get location
                 </p>
+              </div>
+
+              {/* Sydney Location Section */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <h3 className="text-xl font-bold text-white mb-4">Sydney Office</h3>
+                <div className="mb-2 text-gray-300">Sydney, Australia</div>
+                <a href="https://maps.google.com/?q=Sydney+Australia" target="_blank" rel="noopener noreferrer" className="text-accent-cyan hover:underline">View on Google Maps</a>
               </div>
 
               {/* Social Links */}
@@ -263,18 +276,30 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-4xl mx-auto"
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-4xl mx-auto flex flex-col md:flex-row gap-6"
           >
-            <div className="aspect-video rounded-lg overflow-hidden">
+            <div className="flex-1 aspect-video rounded-lg overflow-hidden min-w-[250px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.203707485823!2d76.2673043147716!3d9.93123289290939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514b0e6c2d%3A0x4c1e8e6e8e8e8e8e!2sInfopark+Phase+2%2C+Kochi%2C+Kerala%2C+India!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=Kochi+Kerala+India&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Supe AI Location - Infopark Phase 2 Kochi"
+                title="Supe AI Location - Kochi"
+              ></iframe>
+            </div>
+            <div className="flex-1 aspect-video rounded-lg overflow-hidden min-w-[250px]">
+              <iframe
+                src="https://www.google.com/maps?q=Sydney+Australia&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Supe AI Location - Sydney"
               ></iframe>
             </div>
           </motion.div>

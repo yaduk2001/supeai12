@@ -67,6 +67,12 @@
       "namedRegex": "^/chat(?:/)?$"
     },
     {
+      "page": "/consultancy",
+      "regex": "^/consultancy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/consultancy(?:/)?$"
+    },
+    {
       "page": "/contact",
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},

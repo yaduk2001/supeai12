@@ -90,14 +90,14 @@ export default function Home() {
     {
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 00-2-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-4v-4m0 0V8m0 4h4m-4 0H8" />
         </svg>
       ),
-      title: "AI Automation",
-      description: "Streamline workflows with intelligent automation powered by cutting-edge AI technology.",
-      gradient: "from-purple-500 to-pink-500",
-      features: ["Workflow Optimization", "Process Automation", "Smart Decision Making"],
-      color: "purple"
+      title: "Customer Insights AI",
+      description: "Unlock actionable insights from your customer data with advanced AI analytics and segmentation.",
+      gradient: "from-orange-500 to-pink-500",
+      features: ["Customer Analytics", "Segmentation", "Predictive Insights"],
+      color: "orange"
     },
     {
       icon: (
@@ -122,7 +122,31 @@ export default function Home() {
       gradient: "from-green-500 to-emerald-500",
       features: ["50+ Languages", "Cultural Context", "Accurate Translation"],
       color: "green"
-    }
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+        </svg>
+      ),
+      title: "AI-Powered Marketing",
+      description: "Boost your brand and reach with AI-driven marketing automation, analytics, and personalization.",
+      gradient: "from-pink-500 to-red-500",
+      features: ["Campaign Automation", "Audience Insights", "Personalized Content"],
+      color: "pink"
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zm0 0V7m0 4v4m0 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z" />
+        </svg>
+      ),
+      title: "Data Security & Compliance",
+      description: "Protect your business with advanced AI-driven security and compliance solutions.",
+      gradient: "from-yellow-500 to-orange-500",
+      features: ["AI Security", "Compliance Automation", "Risk Management"],
+      color: "yellow"
+    },
   ];
 
   const testimonials = [
@@ -243,7 +267,7 @@ export default function Home() {
                   alt="Supe AI Logo" 
                   className="w-full h-full object-contain rounded-lg"
                   style={{ maxHeight: '2.5rem', background: 'white' }}
-                />
+                img/>
               </motion.div>
               <span className="text-white font-bold text-xl group-hover:text-[#00FFC2] transition-colors">
                 Supe AI
@@ -457,6 +481,27 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="mb-20"
+          >
+            {/* Business Consultancy Panel */}
+            <div className="bg-gradient-to-br from-cyan-900/60 to-cyan-700/20 rounded-3xl p-10 md:p-16 shadow-2xl border border-accent-cyan/40 flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+              <div className="flex-1 text-left">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Business Consultancy</h2>
+                <p className="text-lg text-gray-300 mb-6 max-w-xl">Unlock growth, operational excellence, and global market access with Supe AI&apos;s expert business consultancy. From client acquisition to legal, marketing, and tech innovation, our team empowers your business to thrive in any market.</p>
+                <Link href="/consultancy" className="btn-primary inline-block">Learn More</Link>
+              </div>
+              <div className="flex-1 flex items-center justify-center">
+                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl">
+                  <span className="text-7xl md:text-9xl">🤝</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -534,6 +579,16 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+            {/* Business Consultancy Card (add to main offerings grid/section) */}
+            <div className="group relative bg-gradient-to-br from-cyan-900/40 to-cyan-700/10 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform duration-300 border border-accent-cyan/30">
+              <a href="/consultancy" className="absolute inset-0 z-10" tabIndex="-1" aria-label="Business Consultancy" />
+              <div className="flex items-center mb-4">
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-3xl shadow-lg mr-4">🤝</div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors duration-300">Business Consultancy</h3>
+              </div>
+              <p className="text-gray-300 mb-4">Expert guidance for client acquisition, operational excellence, marketing, legal, and technology innovation. Grow and safeguard your business with Supe AI&apos;s consultancy services.</p>
+              <span className="inline-block mt-2 text-accent-cyan font-semibold">Learn More →</span>
+            </div>
           </div>
         </div>
       </section>
