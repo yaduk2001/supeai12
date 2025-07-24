@@ -254,6 +254,7 @@ export default function Home() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-white hover:text-[#00FFC2] transition-colors">About</Link>
               <Link href="/services" className="text-white hover:text-[#00FFC2] transition-colors">Services</Link>
+              <Link href="/core_services" className="text-white hover:text-[#00FFC2] transition-colors">Core Services</Link>
               <Link href="/contact" className="text-white hover:text-[#00FFC2] transition-colors">Contact</Link>
               <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">Chat</Link>
             </nav>
@@ -286,6 +287,7 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-4">
               <Link href="/about" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
               <Link href="/services" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <Link href="/core_services" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Core Services</Link>
               <Link href="/contact" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
               <Link href="/chat" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Chat</Link>
             </div>
