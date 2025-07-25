@@ -4,13 +4,13 @@
   "/api/auth/google/route": "/api/auth/google",
   "/api/chat/route": "/api/chat",
   "/favicon.ico/route": "/favicon.ico",
+  "/auth/signup/page": "/auth/signup",
   "/auth/callback/page": "/auth/callback",
   "/about/page": "/about",
-  "/auth/login/page": "/auth/login",
-  "/auth/signup/page": "/auth/signup",
   "/chat/page": "/chat",
   "/consultancy/page": "/consultancy",
   "/contact/page": "/contact",
+  "/auth/login/page": "/auth/login",
   "/page": "/",
   "/services/page": "/services"
 }
