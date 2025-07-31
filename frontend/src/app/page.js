@@ -583,7 +583,11 @@ export default function Home() {
             <div className="group relative bg-gradient-to-br from-cyan-900/40 to-cyan-700/10 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform duration-300 border border-accent-cyan/30">
               <a href="/consultancy" className="absolute inset-0 z-10" tabIndex="-1" aria-label="Business Consultancy" />
               <div className="flex items-center mb-4">
-                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-3xl shadow-lg mr-4">🤝</div>
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg mr-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
                 <h3 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors duration-300">Business Consultancy</h3>
               </div>
               <p className="text-gray-300 mb-4">Expert guidance for client acquisition, operational excellence, marketing, legal, and technology innovation. Grow and safeguard your business with Supe AI&apos;s consultancy services.</p>

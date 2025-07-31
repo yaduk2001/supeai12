@@ -206,9 +206,14 @@ export default function ContactPage() {
                     <span className="ml-2 text-xs text-accent-cyan">Business Development Manager</span>
                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">🌐</span>
+                    <span className="text-2xl">🇬🇧</span>
                     <a href="tel:+447404465149" className="hover:text-accent-cyan transition">+44 7404 465149</a>
-                    <span className="ml-2 text-xs text-accent-cyan">Sydney Office</span>
+                    <span className="ml-2 text-xs text-accent-cyan">UK/London</span>
+                  </div>
+                  <div className="flex items-center text-gray-300 gap-2">
+                    <span className="text-2xl">🇦🇺</span>
+                    <a href="tel:+61468371679" className="hover:text-accent-cyan transition">+61 468 371 679</a>
+                    <span className="ml-2 text-xs text-accent-cyan">Australia</span>
                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
                     <span className="text-2xl">💼</span>
@@ -226,7 +231,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-white mb-4">Scan Location QR</h3>
                 <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
                   <QRCodeSVG
-                    value="https://maps.google.com/?q=Kochi+Kerala+India"
+                    value="https://maps.google.com/?q=Edappally+Kochi+Kerala+India"
                     size={160}
                     bgColor="#014421"
                     fgColor="#00FF41"
@@ -242,8 +247,15 @@ export default function ContactPage() {
               {/* Sydney Location Section */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
                 <h3 className="text-xl font-bold text-white mb-4">Sydney Office</h3>
-                <div className="mb-2 text-gray-300">Sydney, Australia</div>
-                <a href="https://maps.google.com/?q=Sydney+Australia" target="_blank" rel="noopener noreferrer" className="text-accent-cyan hover:underline">View on Google Maps</a>
+                <div className="mb-2 text-gray-300">1/8 Arthur St, Ryde NSW 2112</div>
+                <a href="https://maps.google.com/?q=1/8+Arthur+St,Ryde+NSW+2112" target="_blank" rel="noopener noreferrer" className="text-accent-cyan hover:underline">View on Google Maps</a>
+              </div>
+
+              {/* London Location Section */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <h3 className="text-xl font-bold text-white mb-4">London Office</h3>
+                <div className="mb-2 text-gray-300">E16 3RU, London, UK</div>
+                <a href="https://maps.google.com/?q=E16+3RU+London+UK" target="_blank" rel="noopener noreferrer" className="text-accent-cyan hover:underline">View on Google Maps</a>
               </div>
 
               {/* Social Links */}
@@ -276,30 +288,42 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-4xl mx-auto flex flex-col md:flex-row gap-6"
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            <div className="flex-1 aspect-video rounded-lg overflow-hidden min-w-[250px]">
+            <div className="aspect-video rounded-lg overflow-hidden min-w-[250px]">
               <iframe
-                src="https://www.google.com/maps?q=Kochi+Kerala+India&output=embed"
+                src="https://www.google.com/maps?q=Edappally+Kochi+Kerala+India&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Supe AI Location - Kochi"
+                title="Supe AI Location - Edappally, Kochi"
               ></iframe>
             </div>
-            <div className="flex-1 aspect-video rounded-lg overflow-hidden min-w-[250px]">
+            <div className="aspect-video rounded-lg overflow-hidden min-w-[250px]">
               <iframe
-                src="https://www.google.com/maps?q=Sydney+Australia&output=embed"
+                src="https://www.google.com/maps?q=1/8+Arthur+St,Ryde+NSW+2112&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Supe AI Location - Sydney"
+                title="Supe AI Location - Sydney, Ryde"
+              ></iframe>
+            </div>
+            <div className="aspect-video rounded-lg overflow-hidden min-w-[250px]">
+              <iframe
+                src="https://www.google.com/maps?q=E16+3RU+London+UK&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Supe AI Location - London"
               ></iframe>
             </div>
           </motion.div>
