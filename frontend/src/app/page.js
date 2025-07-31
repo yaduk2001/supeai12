@@ -490,11 +490,11 @@ export default function Home() {
                 <p className="text-lg text-gray-300 mb-6 max-w-xl">Unlock growth, operational excellence, and global market access with Supe AI&apos;s expert business consultancy. From client acquisition to legal, marketing, and tech innovation, our team empowers your business to thrive in any market.</p>
                 <Link href="/consultancy" className="btn-primary inline-block">Learn More</Link>
               </div>
-              <div className="flex-1 flex items-center justify-center">
-                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl">
-                  <span className="text-7xl md:text-9xl">🤝</span>
-                </div>
-              </div>
+                             <div className="flex-1 flex items-center justify-center">
+                 <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl">
+                   <span className="text-7xl md:text-9xl">💼</span>
+                 </div>
+               </div>
             </div>
           </motion.div>
           <motion.div
@@ -706,6 +706,157 @@ export default function Home() {
               <Link href="/contact" className="btn-outline">
                 Schedule Demo
               </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Details Section */}
+      <section className="py-20 lg:py-32 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Get in <span className="text-gradient-primary">Touch</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Ready to transform your business? Let&apos;s start a conversation about how we can help you achieve your goals.
+            </p>
+          </motion.div>
+
+                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+             {/* Email */}
+             <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.1 }}
+               viewport={{ once: true }}
+               className="card-glow p-6 text-center"
+             >
+               <div className="text-4xl mb-4">📧</div>
+               <h3 className="text-xl font-bold text-white mb-2">Email</h3>
+               <a href="mailto:contact@supeai.in" className="text-accent-cyan hover:text-white transition-colors">
+                 contact@supeai.in
+               </a>
+             </motion.div>
+
+             {/* India Office */}
+             <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.2 }}
+               viewport={{ once: true }}
+               className="card-glow p-6 text-center"
+             >
+               <div className="text-4xl mb-4">🇮🇳</div>
+               <h3 className="text-xl font-bold text-white mb-2">India Office</h3>
+               <div className="flex flex-col items-center">
+                 <a href="tel:+918075851517" className="text-accent-cyan hover:text-white transition-colors">
+                   +91 8075851517
+                 </a>
+                 <span className="text-xs text-accent-cyan mt-1">Business Development Manager</span>
+               </div>
+             </motion.div>
+
+             {/* UK Office */}
+             <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.3 }}
+               viewport={{ once: true }}
+               className="card-glow p-6 text-center"
+             >
+               <div className="text-4xl mb-4">🇬🇧</div>
+               <h3 className="text-xl font-bold text-white mb-2">UK/London</h3>
+               <a href="tel:+447404465149" className="text-accent-cyan hover:text-white transition-colors">
+                 +44 7404 465149
+               </a>
+             </motion.div>
+
+             {/* Australia Office */}
+             <motion.div
+               initial={{ opacity: 0, y: 40 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.4 }}
+               viewport={{ once: true }}
+               className="card-glow p-6 text-center"
+             >
+               <div className="text-4xl mb-4">🇦🇺</div>
+               <h3 className="text-xl font-bold text-white mb-2">Australia</h3>
+               <a href="tel:+61468371679" className="text-accent-cyan hover:text-white transition-colors">
+                 +61 468 371 679
+               </a>
+             </motion.div>
+           </div>
+
+          {/* Office Locations */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          >
+            {/* Kochi Office */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="card-glow p-6 text-center"
+            >
+              <div className="text-3xl mb-4">🏢</div>
+              <h3 className="text-lg font-bold text-white mb-2">Kochi Office</h3>
+              <p className="text-gray-300 text-sm">Edappally, Kochi, Kerala, India</p>
+            </motion.div>
+
+            {/* Sydney Office */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="card-glow p-6 text-center"
+            >
+              <div className="text-3xl mb-4">🏢</div>
+              <h3 className="text-lg font-bold text-white mb-2">Sydney Office</h3>
+              <p className="text-gray-300 text-sm">1/8 Arthur St, Ryde NSW 2112</p>
+            </motion.div>
+
+            {/* London Office */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="card-glow p-6 text-center"
+            >
+              <div className="text-3xl mb-4">🏢</div>
+              <h3 className="text-lg font-bold text-white mb-2">London Office</h3>
+              <p className="text-gray-300 text-sm">E16 3RU, London, UK</p>
+            </motion.div>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <div className="flex justify-center space-x-6">
+              <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-cyan transition-colors">
+                💼
+              </a>
+              <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-cyan transition-colors">
+                💬
+              </a>
             </div>
           </motion.div>
         </div>

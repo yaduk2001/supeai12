@@ -203,7 +203,7 @@ export default function ContactPage() {
                   <div className="flex items-center text-gray-300 gap-2">
                     <span className="text-2xl">📱</span>
                     <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
-                    <span className="ml-2 text-xs text-accent-cyan">Business Development Manager</span>
+                    <span className="ml-2 text-xs text-accent-cyan">India</span>
                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
                     <span className="text-2xl">🇬🇧</span>
