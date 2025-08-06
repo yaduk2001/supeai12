@@ -59,8 +59,8 @@ export default function Navbar() {
         style={{ willChange: 'transform' }}
       >
         {/* Softer glowing/gradient background for the Navbar only */}
-        <div className="absolute inset-0 rounded-r-2xl pointer-events-none z-0 bg-gradient-to-br from-[#00FFC2]/30 via-[#005533]/20 to-black/70 shadow-xl">
-          <div className="absolute inset-0 blur-md opacity-30 bg-accent-cyan/20" />
+                 <div className="absolute inset-0 rounded-r-2xl pointer-events-none z-0 bg-gradient-to-br from-[#146EE9]/30 via-[#285B95]/20 to-black/70 shadow-xl">
+           <div className="absolute inset-0 blur-md opacity-30 bg-accent-blue/20" />
         </div>
         <div className="relative z-10 flex flex-col items-center w-full h-full">
           <Link 
@@ -78,11 +78,12 @@ export default function Navbar() {
                 className="w-[90%] h-[90%]"
               >
                 <motion.img 
-                  src="/images/20250709_145127_890.jpg"
+                  src="/images/logo2.svg"
                   alt="Supe AI Logo"
                   className="w-full h-full object-contain transform transition-all duration-300"
+                  style={{ transform: 'scale(1.4)' }}
                   animate={{
-                    scale: isHovered ? 1.15 : 1,
+                    scale: isHovered ? 1.55 : 1.4,
                     rotate: isHovered ? 5 : 0
                   }}
                   transition={{ duration: 0.3 }}
@@ -103,10 +104,10 @@ export default function Navbar() {
                   >
                     Supe AI
                   </motion.span>
-                  <motion.span 
-                    variants={textVariants}
-                    className="text-xs text-accent-cyan mt-1 font-medium tracking-wide"
-                  >
+                                     <motion.span 
+                     variants={textVariants}
+                     className="text-xs text-accent-blue mt-1 font-medium tracking-wide"
+                   >
                     Empowering Intelligence
                   </motion.span>
                 </motion.div>
@@ -130,17 +131,17 @@ export default function Navbar() {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3, delay: index * 0.1 + 0.3 }}
                   >
-                    <Link
-                      href={link.href}
-                      className={`relative flex items-center px-4 py-3 rounded-lg text-white/90 hover:bg-white/15 hover:text-accent-cyan transition-colors duration-200 w-full text-base font-semibold tracking-wide group ${
-                        pathname === link.href ? 'bg-white/15 text-accent-cyan font-bold shadow-md' : ''
-                      }`}
-                      // Removed onClick handler to allow normal navigation
-                    >
-                      {/* Left accent bar for active link */}
-                      <span className={`absolute left-0 top-2 bottom-2 w-1 rounded bg-accent-cyan transition-all duration-200 ${pathname === link.href ? 'opacity-100' : 'opacity-0'}`}></span>
-                      <span className="pl-2 transition-transform duration-200 group-hover:translate-x-1">{link.label}</span>
-                    </Link>
+                                         <Link
+                       href={link.href}
+                       className={`relative flex items-center px-4 py-3 rounded-lg text-white/90 hover:bg-white/15 hover:text-accent-blue transition-colors duration-200 w-full text-base font-semibold tracking-wide group ${
+                         pathname === link.href ? 'bg-white/15 text-accent-blue font-bold shadow-md' : ''
+                       }`}
+                       // Removed onClick handler to allow normal navigation
+                     >
+                       {/* Left accent bar for active link */}
+                       <span className={`absolute left-0 top-2 bottom-2 w-1 rounded bg-accent-blue transition-all duration-200 ${pathname === link.href ? 'opacity-100' : 'opacity-0'}`}></span>
+                       <span className="pl-2 transition-transform duration-200 group-hover:translate-x-1">{link.label}</span>
+                     </Link>
                   </motion.div>
             ))}
               </motion.div>

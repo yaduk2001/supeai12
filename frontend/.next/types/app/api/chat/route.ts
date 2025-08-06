@@ -1,4 +1,4 @@
-// File: S:\supe1\supe1\frontend\src\app\api\chat\route.js
+// File: S:\supe1.2\supe1\frontend\src\app\api\chat\route.js
 import * as entry from '../../../../../src/app/api/chat/route.js'
 import type { NextRequest } from 'next/server.js'
 

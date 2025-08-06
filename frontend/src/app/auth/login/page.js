@@ -71,7 +71,7 @@ export default function LoginPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <img 
-                  src="/images/20250709_145127_890.jpg" 
+                  src="/images/logo2.svg" 
                   alt="Supe AI Logo" 
                   className="w-full h-full object-contain rounded-lg"
                   style={{ maxHeight: '2.5rem', background: 'white' }}

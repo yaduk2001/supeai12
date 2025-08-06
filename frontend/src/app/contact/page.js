@@ -77,25 +77,45 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <div className={`min-h-screen bg-gradient-to-br from-[#051A05] via-[#0A2A0A] to-[#051A05] transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''}`}>
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
+      <div className={`min-h-screen bg-gradient-to-br from-[#0A0F1A] via-[#1A2332] to-[#0A0F1A] transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''} relative overflow-hidden`}>
+        
+        {/* Enhanced Animated Background Particles */}
+        <div className="fixed inset-0 pointer-events-none z-0">
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold text-white mb-6"
+            animate={{ y: [-12, 12, -12], x: [-6, 6, -6] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 left-1/4 w-3 h-3 bg-accent-blue rounded-full opacity-60 glow-effect"
+          />
+          <motion.div
+            animate={{ y: [12, -12, 12], x: [6, -6, 6] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent-blueMedium rounded-full opacity-40 glow-effect"
+          />
+          <motion.div
+            animate={{ y: [-8, 18, -8], x: [-12, 12, -12] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-2/3 left-1/3 w-1.5 h-1.5 bg-accent-blueLight rounded-full opacity-50 glow-effect"
+          />
+        </div>
+
+        {/* Enhanced Hero Section */}
+        <section className="py-16 lg:py-24 relative z-10 bg-gradient-to-br from-[#0A0F1A]/50 via-[#1A2332]/30 to-[#0A0F1A]/50 backdrop-blur-sm">
+          <div className="container mx-auto px-4">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-center max-w-4xl mx-auto"
             >
-              Get in{' '}
-              <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-                Touch
-              </span>
-            </motion.h1>
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-6xl font-bold text-white mb-6 glow-text"
+              >
+                Get in{' '}
+                <span className="text-gradient-primary glow-text">
+                  Touch
+                </span>
+              </motion.h1>
             
             <motion.p
               variants={itemVariants}
@@ -109,7 +129,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-[#0A0F1A]/30 via-[#1A2332]/20 to-[#0A0F1A]/30">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             
@@ -136,7 +156,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300"
                       placeholder="Your full name"
                     />
                   </div>
@@ -152,7 +172,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -168,7 +188,7 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300 resize-none"
                       placeholder="Tell us about your project or how we can help..."
                     />
                   </div>
@@ -176,7 +196,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 disabled:from-gray-500 disabled:to-gray-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-accent-blue to-accent-blueMedium hover:from-accent-blueMedium hover:to-accent-blue disabled:from-gray-500 disabled:to-gray-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:transform-none"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
@@ -201,7 +221,7 @@ export default function ContactPage() {
                     <a href="mailto:contact@supeai.in" className="hover:text-accent-cyan transition">contact@supeai.in</a>
                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">📱</span>
+                    <span className="text-2xl">🇮🇳</span>
                     <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
                     <span className="ml-2 text-xs text-accent-cyan">India</span>
                   </div>

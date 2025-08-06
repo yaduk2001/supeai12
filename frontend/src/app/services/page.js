@@ -165,191 +165,138 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <div className={`min-h-screen bg-gradient-primary transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''}`}>
-      {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.h1
-              variants={cardVariants}
-              className="text-5xl md:text-7xl font-bold text-white mb-8"
-            >
-              AI-Powered Services{' '}
-              <span className="text-gradient-primary">Across Industries</span>
-            </motion.h1>
-            
-            <motion.p
-              variants={cardVariants}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-12"
-            >
-              Transform your industry with cutting-edge AI solutions designed for your specific needs
-            </motion.p>
-
-            <motion.div
-              variants={cardVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-            >
-              <Link
-                href="/contact"
-                className="btn-primary"
-              >
-                Try Our API
-              </Link>
-              <Link
-                href="/contact"
-                className="btn-outline"
-              >
-                Get Custom Quote
-              </Link>
-            </motion.div>
-          </motion.div>
+      <div className={`min-h-screen bg-gradient-to-br from-[#0A0F1A] via-[#1A2332] via-[#0F2A1A] to-[#0A0F1A] relative overflow-hidden`}>
+        
+        {/* Enhanced Animated Background Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent-blue/30 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+          <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-accent-green/40 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-accent-blueMedium/20 rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent-green/30 rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-accent-blue/50 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '5s' }}></div>
+          <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-accent-green/25 rounded-full animate-float" style={{ animationDelay: '5s', animationDuration: '10s' }}></div>
+          <div className="absolute top-1/4 right-1/2 w-3 h-3 bg-accent-blueLight/30 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '8.5s' }}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-1 h-1 bg-accent-green/35 rounded-full animate-float" style={{ animationDelay: '1.5s', animationDuration: '7.5s' }}></div>
         </div>
-      </section>
+
+        {/* Enhanced Hero Section */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center bg-gradient-to-br from-[#0A0F1A]/50 via-[#1A2332]/30 via-[#0F2A1A]/40 to-[#0A0F1A]/50 backdrop-blur-sm rounded-3xl p-12 border border-white/10 shadow-2xl">
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-6 glow-text"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Our <span className="text-gradient-primary">Services</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Comprehensive AI solutions designed to transform your business and drive innovation across all industries.
+              </motion.p>
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <button className="btn-primary neon-border px-8 py-4 text-lg font-semibold">
+                  Try Our API
+                </button>
+                <button className="btn-outline mirror-effect px-8 py-4 text-lg font-semibold">
+                  Get Custom Quote
+                </button>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-          >
-            {industries.map((industry, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-                className="group relative"
-              >
-                <div className="card-glow p-8 h-full relative overflow-hidden">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-[#0A0F1A]/30 via-[#1A2332]/20 via-[#0F2A1A]/25 to-[#0A0F1A]/30 rounded-3xl p-8 border border-white/10">
+            <motion.div 
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              {industries.map((industry, index) => (
+                <motion.div
+                  key={industry.title}
+                  className="card-glow p-8 mirror-effect group relative overflow-hidden"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
                   {/* Glowing border effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent-cyan/20 to-accent-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Gradient overlay on hover */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${industry.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent-blue/20 via-accent-green/20 to-accent-blueMedium/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   <div className="relative z-10">
-                    {/* Animated Icon */}
-                    <motion.div
-                      variants={iconVariants}
-                      whileHover="hover"
-                      className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${industry.gradient} mb-6 text-white shadow-lg`}
-                    >
-                      {industry.icon}
-                    </motion.div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gradient-primary transition-colors duration-300">
-                      {industry.title}
-                    </h3>
-                    
-                    <p className="text-gray-300 leading-relaxed mb-6">
-                      {industry.description}
-                    </p>
-                    
-                    {/* Features List */}
-                    <div className="space-y-2">
-                      {industry.features.map((feature, featureIndex) => (
-                        <motion.div
-                          key={featureIndex}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
-                          viewport={{ once: true }}
-                          className="flex items-center text-sm text-gray-300"
-                        >
-                          <div className="w-2 h-2 bg-accent-cyan rounded-full mr-3" />
+                    <div className="text-4xl mb-4">{industry.icon}</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{industry.title}</h3>
+                    <p className="text-gray-300 mb-6">{industry.description}</p>
+                    <ul className="space-y-2">
+                      {industry.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center text-gray-300">
+                          <span className="text-accent-blue mr-2">✓</span>
                           {feature}
-                        </motion.div>
+                        </li>
                       ))}
-                    </div>
-                    
-                    {/* Hover effect line */}
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent-cyan to-accent-green"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    </ul>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                  
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 via-accent-green/5 to-accent-blueMedium/5 opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why Choose Supe AI?
-            </h2>
-            <p className="text-lg text-gray-300">
-              Advanced technology meets industry expertise
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-[#1A2332]/20 via-[#0A0F1A]/30 via-[#0F2A1A]/20 to-[#1A2332]/20 rounded-3xl p-8 border border-white/10">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center"
             >
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Fast Implementation</h3>
-              <p className="text-gray-300 text-sm">
-                Get up and running quickly with our streamlined deployment process
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Why Choose Supe AI?</h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Our cutting-edge technology and expert team ensure you get the best AI solutions tailored to your needs.
               </p>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="text-4xl mb-4">🔒</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Enterprise Security</h3>
-              <p className="text-gray-300 text-sm">
-                Bank-level security and compliance for your sensitive business data
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold text-white mb-3">Custom Solutions</h3>
-              <p className="text-gray-300 text-sm">
-                Tailored AI solutions designed specifically for your business needs
-              </p>
-            </motion.div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {industries.map((industry, index) => (
+                <motion.div
+                  key={industry.title}
+                  className="card-glow p-6 mirror-effect text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-3xl mb-4">{industry.icon}</div>
+                  <h3 className="text-xl font-bold mb-3 text-white">{industry.title}</h3>
+                  <p className="text-gray-300">{industry.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

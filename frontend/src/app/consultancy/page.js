@@ -114,25 +114,49 @@ export default function ConsultancyPage() {
   return (
     <>
       <Navbar />
-      <div className={`min-h-screen bg-gradient-to-br from-[#051A05] via-[#005533] to-[#D1FFE6] transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''} relative overflow-hidden`}> 
-        {/* Animated background particles for extra visual interest */}
-        <Particles className="absolute inset-0 z-0 pointer-events-none" color="#22c55e" />
-        {/* Animated green floating shapes and parallax waves */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-          <div className="absolute w-[600px] h-[600px] bg-green-400/20 rounded-full blur-3xl left-[-15%] top-[-10%] animate-pulse" />
-          <div className="absolute w-96 h-96 bg-emerald-400/20 rounded-full blur-2xl right-[-10%] top-[30%] animate-pulse" />
-          <div className="absolute w-80 h-80 bg-lime-400/20 rounded-full blur-2xl left-[40%] bottom-[-10%] animate-pulse" />
-          {/* SVG wave for extra green flair */}
-          <svg className="absolute bottom-0 left-0 w-full h-32 md:h-48 z-0" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#16a34a" fillOpacity="0.18" d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,197.3C840,224,960,224,1080,197.3C1200,171,1320,117,1380,90.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-          </svg>
+      <div className={`min-h-screen bg-gradient-to-br from-[#0A0F1A] via-[#1A2332] via-[#0F2A1A] to-[#0A0F1A] relative overflow-hidden`}> 
+        
+        {/* Enhanced Animated Background Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent-blue/30 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+          <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-accent-green/40 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-accent-blueMedium/20 rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent-green/30 rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-accent-blue/50 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '5s' }}></div>
+          <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-accent-green/25 rounded-full animate-float" style={{ animationDelay: '5s', animationDuration: '10s' }}></div>
+          <div className="absolute top-1/4 right-1/2 w-3 h-3 bg-accent-blueLight/30 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '8.5s' }}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-1 h-1 bg-accent-green/35 rounded-full animate-float" style={{ animationDelay: '1.5s', animationDuration: '7.5s' }}></div>
         </div>
-        {/* Hero Section */}
-        <section className="py-24 lg:py-36 bg-gradient-to-br from-[#051A05] via-[#005533] to-[#D1FFE6] relative z-10 shadow-lg rounded-b-3xl">
-          <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-[#00FFC2] mb-6 tracking-tight leading-tight drop-shadow-lg">Business Consultancy</h1>
-            <p className="text-xl md:text-2xl text-[#D1FFE6] mb-8 max-w-2xl mx-auto">Empowering your business with expert guidance, operational excellence, and innovative solutions. Unlock growth, efficiency, and global reach with our premium consultancy services.</p>
-            <a href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-[#00FFC2] to-[#005533] text-[#051A05] font-bold rounded-full shadow-lg hover:scale-105 hover:from-[#00FFC2] hover:to-[#00FFC2] transition-all duration-300 text-lg">Get Started</a>
+
+        {/* Enhanced Hero Section */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center bg-gradient-to-br from-[#0A0F1A]/80 via-[#1A2332]/60 via-[#0F2A1A]/70 to-[#0A0F1A]/80 backdrop-blur-sm rounded-3xl p-12 border border-white/10 shadow-2xl">
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-6 glow-text"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                AI <span className="text-gradient-primary">Consultancy</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Expert guidance to transform your business with cutting-edge AI solutions tailored to your specific needs.
+              </motion.p>
+              <motion.button 
+                className="btn-primary neon-border px-8 py-4 text-lg font-semibold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Get Started Today
+              </motion.button>
+            </div>
           </div>
         </section>
 
@@ -143,15 +167,15 @@ export default function ConsultancyPage() {
               {sections.map((section, idx) => (
                 <div
                   key={section.title}
-                  className="group relative bg-[#051A05]/80 backdrop-blur-lg rounded-3xl p-10 h-full overflow-hidden shadow-xl border border-[#00FFC2]/30 hover:border-[#00FFC2] transition-all duration-300 flex flex-col items-center hover:scale-[1.03]"
+                  className="group relative bg-white/5 backdrop-blur-xl rounded-3xl p-10 h-full overflow-hidden shadow-xl border border-accent-blue/30 hover:border-accent-blue transition-all duration-500 flex flex-col items-center hover:scale-[1.03] mirror-effect"
                 >
-                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#00FFC2] via-[#005533] to-[#D1FFE6] shadow-lg group-hover:from-[#00FFC2] group-hover:to-[#005533] transition-all duration-300">
+                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue via-accent-blueMedium to-accent-blueLight shadow-lg group-hover:from-accent-blue group-hover:to-accent-blueMedium transition-all duration-300 glow-effect">
                     {section.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-[#00FFC2] mb-4 text-center group-hover:text-[#D1FFE6] transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-accent-blue mb-4 text-center group-hover:text-white transition-colors duration-300 glow-text">
                     {section.title}
                   </h3>
-                  <ul className="text-[#D1FFE6] leading-relaxed mb-6 list-disc list-inside space-y-1 text-left text-base">
+                  <ul className="text-gray-300 leading-relaxed mb-6 list-disc list-inside space-y-1 text-left text-base">
                     {section.description.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -166,34 +190,34 @@ export default function ConsultancyPage() {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-8">
-              <div className="flex items-center gap-3 bg-[#005533]/80 rounded-xl px-6 py-4 shadow border border-[#00FFC2]/30">
-                <FaAward className="text-2xl text-[#00FFC2]" />
-                <span className="font-semibold text-[#D1FFE6]">Award-Winning Expertise</span>
+              <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 shadow border border-accent-blue/30 glow-effect">
+                <FaAward className="text-2xl text-accent-blue" />
+                <span className="font-semibold text-white">Award-Winning Expertise</span>
               </div>
-              <div className="flex items-center gap-3 bg-[#005533]/80 rounded-xl px-6 py-4 shadow border border-[#00FFC2]/30">
-                <FaGlobe className="text-2xl text-[#00FFC2]" />
-                <span className="font-semibold text-[#D1FFE6]">Global Reach</span>
+              <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 shadow border border-accent-blue/30 glow-effect">
+                <FaGlobe className="text-2xl text-accent-blue" />
+                <span className="font-semibold text-white">Global Reach</span>
               </div>
-              <div className="flex items-center gap-3 bg-[#005533]/80 rounded-xl px-6 py-4 shadow border border-[#00FFC2]/30">
-                <FaRocket className="text-2xl text-[#00FFC2]" />
-                <span className="font-semibold text-[#D1FFE6]">Proven Results</span>
+              <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 shadow border border-accent-blue/30 glow-effect">
+                <FaRocket className="text-2xl text-accent-blue" />
+                <span className="font-semibold text-white">Proven Results</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-[#051A05] via-[#005533] to-[#D1FFE6]">
+        {/* Enhanced Testimonials Section */}
+        <section className="py-16 lg:py-24 bg-gradient-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00FFC2] mb-4">What Our Clients Say</h2>
-              <p className="text-lg text-[#D1FFE6]">Trusted by global leaders for our expertise, innovation, and results-driven approach.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent-blue mb-4 glow-text">What Our Clients Say</h2>
+              <p className="text-lg text-gray-300">Trusted by global leaders for our expertise, innovation, and results-driven approach.</p>
             </div>
             <div className="relative max-w-2xl mx-auto">
-              <div className="bg-[#005533]/90 rounded-2xl p-8 text-center shadow-lg border border-[#00FFC2]/30 animate-fade-in">
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center shadow-lg border border-accent-blue/30 animate-fade-in mirror-effect">
                 <div className="text-4xl mb-4">🌟</div>
-                <h3 className="text-xl font-semibold text-[#00FFC2] mb-2">&quot;Supe AI&apos;s consultancy team helped us scale globally and optimize our operations. Highly recommended!&quot;</h3>
-                <p className="text-[#D1FFE6] text-sm mt-2">— Alex Morgan, COO, GlobalTech</p>
+                <h3 className="text-xl font-semibold text-accent-blue mb-2 glow-text">&quot;Supe AI&apos;s consultancy team helped us scale globally and optimize our operations. Highly recommended!&quot;</h3>
+                <p className="text-gray-300 text-sm mt-2">— Alex Morgan, COO, GlobalTech</p>
               </div>
             </div>
           </div>

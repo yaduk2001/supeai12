@@ -235,60 +235,80 @@ export default function Home() {
       {/* Reusable Futuristic Background */}
       <FuturisticBackground />
 
-      {/* Floating Elements */}
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent-cyan rounded-full opacity-60 hidden lg:block"
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        style={{ animationDelay: '2s' }}
-        className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent-green rounded-full opacity-40 hidden lg:block"
-      />
+      {/* Enhanced Animated Background Particles */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          variants={floatingVariants}
+          animate="animate"
+          className="absolute top-1/4 left-1/4 w-3 h-3 bg-accent-blue rounded-full opacity-60 glow-effect"
+        />
+        <motion.div
+          variants={floatingVariants}
+          animate="animate"
+          style={{ animationDelay: '2s' }}
+          className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent-blueMedium rounded-full opacity-40 glow-effect"
+        />
+        <motion.div
+          variants={floatingVariants}
+          animate="animate"
+          style={{ animationDelay: '4s' }}
+          className="absolute top-2/3 left-1/3 w-1.5 h-1.5 bg-accent-blueLight rounded-full opacity-50 glow-effect"
+        />
+        <motion.div
+          variants={floatingVariants}
+          animate="animate"
+          style={{ animationDelay: '1s' }}
+          className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-accent-blue rounded-full opacity-30 glow-effect"
+        />
+      </div>
 
-      {/* Header Navigation */}
+      {/* Enhanced Header Navigation */}
       <motion.header 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10"
+        className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-white/10 mirror-effect"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* Enhanced Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
               <motion.div 
-                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
-                whileHover={{ scale: 1.05 }}
+                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-blue shadow-lg glow-effect"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="/images/20250709_145127_890.jpg" 
+                  src="/images/logo2.svg" 
                   alt="Supe AI Logo" 
                   className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: '2.5rem', background: 'white' }}
+                  style={{ maxHeight: '4.5rem', background: 'white', transform: 'scale(1.6)' }}
                 />
               </motion.div>
-              <span className="text-white font-bold text-xl group-hover:text-[#00FFC2] transition-colors">
-                Supe AI
-              </span>
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-xl group-hover:text-[#146EE9] transition-colors glow-text">
+                  Supe AI
+                </span>
+                <span className="text-xs text-accent-blue mt-1 font-medium tracking-wide animate-pulse-slow">
+                  Empowering Intelligence
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-white hover:text-[#00FFC2] transition-colors">About</Link>
-              <Link href="/services" className="text-white hover:text-[#00FFC2] transition-colors">Services</Link>
-              <Link href="/contact" className="text-white hover:text-[#00FFC2] transition-colors">Contact</Link>
-              <Link href="/chat" className="text-white hover:text-[#00FFC2] transition-colors">Chat</Link>
-            </nav>
+                         <nav className="hidden md:flex items-center space-x-8">
+               <Link href="/about" className="text-white hover:text-[#146EE9] transition-colors">About</Link>
+               <Link href="/services" className="text-white hover:text-[#146EE9] transition-colors">Services</Link>
+               <Link href="/contact" className="text-white hover:text-[#146EE9] transition-colors">Contact</Link>
+               <Link href="/chat" className="text-white hover:text-[#146EE9] transition-colors">Chat</Link>
+             </nav>
 
             {/* Auth Buttons (right side) */}
             {/* Removed duplicate auth buttons. Only UserMenu is used for auth controls. */}
             {/* <div className="hidden md:flex items-center space-x-2"> ... </div> */}
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#00FFC2]"
+                         <button
+               className="md:hidden flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#146EE9]"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label="Open menu"
             >
@@ -308,10 +328,10 @@ export default function Home() {
         {mobileMenuOpen && (
           <div ref={mobileMenuRef} className="md:hidden absolute top-16 left-0 right-0 bg-black/90 border-b border-white/10 z-50 py-4 shadow-xl animate-fade-in">
             <div className="flex flex-col items-center space-y-4">
-              <Link href="/about" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
-              <Link href="/services" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-              <Link href="/contact" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-              <Link href="/chat" className="text-white text-lg font-semibold hover:text-[#00FFC2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Chat</Link>
+                             <Link href="/about" className="text-white text-lg font-semibold hover:text-[#146EE9] transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
+               <Link href="/services" className="text-white text-lg font-semibold hover:text-[#146EE9] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+               <Link href="/contact" className="text-white text-lg font-semibold hover:text-[#146EE9] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+               <Link href="/chat" className="text-white text-lg font-semibold hover:text-[#146EE9] transition-colors" onClick={() => setMobileMenuOpen(false)}>Chat</Link>
             </div>
           </div>
         )}
@@ -328,28 +348,30 @@ export default function Home() {
             animate="visible"
             className="max-w-6xl mx-auto"
           >
-            {/* Badge */}
+            {/* Enhanced Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center px-6 py-3 bg-accent-cyan/10 border border-accent-cyan/20 rounded-full text-accent-cyan text-sm font-medium mb-8 backdrop-blur-sm"
+              className="inline-flex items-center px-6 py-3 bg-accent-blue/10 border border-accent-blue/20 rounded-full text-accent-blue text-sm font-medium mb-8 backdrop-blur-sm glow-effect"
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ duration: 0.3 }}
             >
-              <span className="w-2 h-2 bg-accent-cyan rounded-full mr-2 animate-pulse"></span>
+              <span className="w-2 h-2 bg-accent-blue rounded-full mr-2 animate-pulse glow-effect"></span>
               AI-Powered Enterprise Solutions
             </motion.div>
 
-            {/* Main Heading with Gradient Animation */}
+            {/* Enhanced Main Heading with Gradient Animation */}
             <motion.h1
               variants={itemVariants}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
             >
               <motion.span 
-                className="block"
+                className="block glow-text"
                 animate={{ 
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
                 transition={{ duration: 5, repeat: Infinity }}
                 style={{
-                  background: 'linear-gradient(90deg, #00FFC2, #005533, #00FFC2)',
+                  background: 'linear-gradient(90deg, #146EE9, #285B95, #146EE9)',
                   backgroundSize: '200% 200%',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -358,8 +380,8 @@ export default function Home() {
               >
                 Transforming
               </motion.span>
-              <span className="block text-gradient-primary drop-shadow-lg">Enterprises</span>
-              <span className="block">with AI</span>
+              <span className="block text-gradient-primary drop-shadow-lg glow-text">Enterprises</span>
+              <span className="block glow-text">with AI</span>
             </motion.h1>
             
             {/* Animated Subheading */}
@@ -379,31 +401,31 @@ export default function Home() {
               </motion.p>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* Enhanced CTA Buttons */}
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
                 <Link
                   href="/auth/signup"
-                  className="btn-primary inline-block"
+                  className="btn-primary inline-block neon-border"
                 >
-                  Get Started
+                  <span className="relative z-10">Get Started</span>
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
                 <Link
                   href="/chat"
-                  className="btn-secondary inline-block"
+                  className="btn-secondary inline-block holographic"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -412,48 +434,51 @@ export default function Home() {
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
                 <Link
                   href="/contact"
-                  className="btn-outline inline-block"
+                  className="btn-outline inline-block mirror-effect"
                 >
                   Contact Us
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Enhanced Trust Indicators */}
             <motion.div
               variants={itemVariants}
               className="flex flex-wrap justify-center items-center gap-8 text-gray-400 text-sm"
             >
               <motion.div 
-                className="flex items-center"
-                whileHover={{ scale: 1.05 }}
+                className="flex items-center glow-effect"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3 }}
               >
-                <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse glow-effect"></span>
                 Trusted by 500+ companies
               </motion.div>
               <motion.div 
-                className="flex items-center"
-                whileHover={{ scale: 1.05 }}
+                className="flex items-center glow-effect"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3 }}
               >
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse glow-effect"></span>
                 ISO 27001 Certified
               </motion.div>
               <motion.div 
-                className="flex items-center"
-                whileHover={{ scale: 1.05 }}
+                className="flex items-center glow-effect"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3 }}
               >
-                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
+                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse glow-effect"></span>
                 99.9% Uptime SLA
               </motion.div>
             </motion.div>
 
-            {/* Scroll Indicator */}
+            {/* Enhanced Scroll Indicator */}
             <motion.div
               variants={itemVariants}
               className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -461,7 +486,8 @@ export default function Home() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-white/60 hover:text-white cursor-pointer"
+                className="text-white/60 hover:text-white cursor-pointer glow-effect"
+                whileHover={{ scale: 1.2, color: '#146EE9' }}
                 onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -484,14 +510,14 @@ export default function Home() {
             className="mb-20"
           >
             {/* Business Consultancy Panel */}
-            <div className="bg-gradient-to-br from-cyan-900/60 to-cyan-700/20 rounded-3xl p-10 md:p-16 shadow-2xl border border-accent-cyan/40 flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+                         <div className="bg-gradient-to-br from-blue-900/60 to-blue-700/20 rounded-3xl p-10 md:p-16 shadow-2xl border border-accent-blue/40 flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
               <div className="flex-1 text-left">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Business Consultancy</h2>
                 <p className="text-lg text-gray-300 mb-6 max-w-xl">Unlock growth, operational excellence, and global market access with Supe AI&apos;s expert business consultancy. From client acquisition to legal, marketing, and tech innovation, our team empowers your business to thrive in any market.</p>
                 <Link href="/consultancy" className="btn-primary inline-block">Learn More</Link>
               </div>
                              <div className="flex-1 flex items-center justify-center">
-                 <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl">
+                 <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-accent-blue to-accent-blueMedium flex items-center justify-center shadow-xl">
                    <span className="text-7xl md:text-9xl">💼</span>
                  </div>
                </div>
@@ -562,36 +588,36 @@ export default function Home() {
                           viewport={{ once: true }}
                           className="flex items-center text-sm text-gray-300"
                         >
-                          <div className="w-2 h-2 bg-accent-cyan rounded-full mr-3" />
+                          <div className="w-2 h-2 bg-accent-blue rounded-full mr-3" />
                           {feature}
                         </motion.div>
                       ))}
                     </div>
                     
                     {/* Hover effect line */}
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent-cyan to-accent-green"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
+                                         <motion.div
+                       className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent-blue to-accent-blueMedium"
+                       initial={{ width: 0 }}
+                       whileHover={{ width: '100%' }}
+                       transition={{ duration: 0.3 }}
+                     />
                   </div>
                 </div>
               </motion.div>
             ))}
             {/* Business Consultancy Card (add to main offerings grid/section) */}
-            <div className="group relative bg-gradient-to-br from-cyan-900/40 to-cyan-700/10 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform duration-300 border border-accent-cyan/30">
+                         <div className="group relative bg-gradient-to-br from-blue-900/40 to-blue-700/10 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform duration-300 border border-accent-blue/30">
               <a href="/consultancy" className="absolute inset-0 z-10" tabIndex="-1" aria-label="Business Consultancy" />
               <div className="flex items-center mb-4">
-                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg mr-4">
+                                 <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r from-accent-blue to-accent-blueMedium text-white shadow-lg mr-4">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors duration-300">Business Consultancy</h3>
+                                 <h3 className="text-2xl font-bold text-white group-hover:text-accent-blue transition-colors duration-300">Business Consultancy</h3>
               </div>
               <p className="text-gray-300 mb-4">Expert guidance for client acquisition, operational excellence, marketing, legal, and technology innovation. Grow and safeguard your business with Supe AI&apos;s consultancy services.</p>
-              <span className="inline-block mt-2 text-accent-cyan font-semibold">Learn More →</span>
+                             <span className="inline-block mt-2 text-accent-blue font-semibold">Learn More →</span>
             </div>
           </div>
         </div>
@@ -740,7 +766,7 @@ export default function Home() {
              >
                <div className="text-4xl mb-4">📧</div>
                <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-               <a href="mailto:contact@supeai.in" className="text-accent-cyan hover:text-white transition-colors">
+                               <a href="mailto:contact@supeai.in" className="text-accent-blue hover:text-white transition-colors">
                  contact@supeai.in
                </a>
              </motion.div>
@@ -756,10 +782,10 @@ export default function Home() {
                <div className="text-4xl mb-4">🇮🇳</div>
                <h3 className="text-xl font-bold text-white mb-2">India Office</h3>
                <div className="flex flex-col items-center">
-                 <a href="tel:+918075851517" className="text-accent-cyan hover:text-white transition-colors">
-                   +91 8075851517
-                 </a>
-                 <span className="text-xs text-accent-cyan mt-1">Business Development Manager</span>
+                                   <a href="tel:+918075851517" className="text-accent-blue hover:text-white transition-colors">
+                    +91 8075851517
+                  </a>
+                  <span className="text-xs text-accent-blue mt-1">Business Development Manager</span>
                </div>
              </motion.div>
 
@@ -773,7 +799,7 @@ export default function Home() {
              >
                <div className="text-4xl mb-4">🇬🇧</div>
                <h3 className="text-xl font-bold text-white mb-2">UK/London</h3>
-               <a href="tel:+447404465149" className="text-accent-cyan hover:text-white transition-colors">
+                               <a href="tel:+447404465149" className="text-accent-blue hover:text-white transition-colors">
                  +44 7404 465149
                </a>
              </motion.div>
@@ -788,7 +814,7 @@ export default function Home() {
              >
                <div className="text-4xl mb-4">🇦🇺</div>
                <h3 className="text-xl font-bold text-white mb-2">Australia</h3>
-               <a href="tel:+61468371679" className="text-accent-cyan hover:text-white transition-colors">
+                               <a href="tel:+61468371679" className="text-accent-blue hover:text-white transition-colors">
                  +61 468 371 679
                </a>
              </motion.div>
@@ -851,12 +877,12 @@ export default function Home() {
             className="mt-12 text-center"
           >
             <div className="flex justify-center space-x-6">
-              <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-cyan transition-colors">
-                💼
-              </a>
-              <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-cyan transition-colors">
-                💬
-              </a>
+                             <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-blue transition-colors">
+                 💼
+               </a>
+               <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-blue transition-colors">
+                 💬
+               </a>
             </div>
           </motion.div>
         </div>

@@ -123,130 +123,113 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <div className={`min-h-screen bg-gradient-primary transition-all duration-300 ${sidebarOpen ? 'ml-56' : ''}`}>
-      {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-white mb-8"
-            >
-              About{' '}
-              <span className="text-gradient-primary">Supe AI</span>
-            </motion.h1>
-            
-            <motion.p
-              variants={itemVariants}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed"
-            >
-              Pioneering the future of artificial intelligence with innovative solutions 
-              that empower businesses and individuals worldwide.
-            </motion.p>
-          </motion.div>
+      <div className={`min-h-screen bg-gradient-to-br from-[#0A0F1A] via-[#1A2332] via-[#0F2A1A] to-[#0A0F1A] relative overflow-hidden ${sidebarOpen ? 'ml-56' : ''}`}>
+        
+        {/* Enhanced Animated Background Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-accent-blue/30 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+          <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-accent-green/40 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-accent-blueMedium/20 rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '7s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent-green/30 rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '9s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-accent-blue/50 rounded-full animate-float" style={{ animationDelay: '3s', animationDuration: '5s' }}></div>
+          <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-accent-green/25 rounded-full animate-float" style={{ animationDelay: '5s', animationDuration: '10s' }}></div>
+          <div className="absolute top-1/4 right-1/2 w-3 h-3 bg-accent-blueLight/30 rounded-full animate-float" style={{ animationDelay: '2.5s', animationDuration: '8.5s' }}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-1 h-1 bg-accent-green/35 rounded-full animate-float" style={{ animationDelay: '1.5s', animationDuration: '7.5s' }}></div>
         </div>
-      </section>
+
+        {/* Enhanced Hero Section */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center bg-gradient-to-br from-[#0A0F1A]/50 via-[#1A2332]/30 via-[#0F2A1A]/40 to-[#0A0F1A]/50 backdrop-blur-sm rounded-3xl p-12 border border-white/10 shadow-2xl">
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-6 glow-text"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                About <span className="text-gradient-primary">Supe AI</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Pioneering the future of artificial intelligence with cutting-edge solutions that transform businesses and empower innovation.
+              </motion.p>
+            </div>
+          </div>
+        </section>
 
       {/* Mission Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              Our Mission
-            </h2>
-            <div className="card-glass p-12">
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-                To democratize artificial intelligence by providing accessible, powerful, and 
-                ethical AI solutions that help businesses and individuals achieve their full 
-                potential in an increasingly digital world.
-              </p>
-            </div>
-          </motion.div>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-[#0A0F1A]/30 via-[#1A2332]/20 via-[#0F2A1A]/25 to-[#0A0F1A]/30 rounded-3xl p-8 border border-white/10">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Our Mission</h2>
+              <div className="card-glow p-12 mirror-effect">
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  To democratize artificial intelligence by providing accessible, powerful, and ethical AI solutions that drive innovation across industries. We believe that AI should be a force for good, enhancing human capabilities while maintaining the highest standards of security and privacy.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              Our Vision
-            </h2>
-            
-            {/* Glowing Divider */}
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: '100px' }}
-              transition={{ duration: 1, delay: 0.5 }}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-[#1A2332]/20 via-[#0A0F1A]/30 via-[#0F2A1A]/20 to-[#1A2332]/20 rounded-3xl p-8 border border-white/10">
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="h-1 bg-gradient-to-r from-accent-cyan to-accent-green mx-auto mb-12 shadow-glow"
-            />
-            
-            <div className="card-glass p-12">
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">Our Vision</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <motion.div 
+                  className="card-glow p-8 mirror-effect"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-center"
                 >
-                  <div className="text-4xl mb-4">🔮</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Future-Focused</h3>
-                  <p className="text-gray-300">Building tomorrow&#39;s AI solutions today</p>
+                  <h3 className="text-2xl font-bold mb-4 text-accent-blue">Innovation</h3>
+                  <p className="text-gray-300">
+                    Pushing the boundaries of what&apos;s possible with AI, creating solutions that were once thought impossible.
+                  </p>
                 </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                <motion.div 
+                  className="card-glow p-8 mirror-effect"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="text-center"
                 >
-                  <div className="text-4xl mb-4">🤝</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Human-Centered</h3>
-                  <p className="text-gray-300">AI that enhances human potential</p>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="text-4xl mb-4">🌍</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Global Impact</h3>
-                  <p className="text-gray-300">Transforming industries worldwide</p>
+                  <h3 className="text-2xl font-bold mb-4 text-accent-green">Sustainability</h3>
+                  <p className="text-gray-300">
+                    Building AI solutions that are environmentally conscious and contribute to a sustainable future.
+                  </p>
                 </motion.div>
               </div>
-              
-              <p className="text-xl text-gray-300 leading-relaxed">
-                To be the leading force in AI innovation, creating a future where intelligent 
-                technology seamlessly integrates into every aspect of business and daily life, 
-                making the world more efficient, connected, and human-centered.
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
+
+      {/* Glowing Divider */}
+      <div className="relative py-8">
+        <div className="h-px bg-gradient-to-r from-transparent via-accent-blue via-accent-green to-transparent glow-effect"></div>
+      </div>
 
       {/* Animated Quote */}
       <section className="py-20 lg:py-32">
