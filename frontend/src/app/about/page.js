@@ -142,7 +142,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center bg-gradient-to-br from-[#0A0F1A]/50 via-[#1A2332]/30 via-[#0F2A1A]/40 to-[#0A0F1A]/50 backdrop-blur-sm rounded-3xl p-12 border border-white/10 shadow-2xl">
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6 glow-text"
+                className="text-5xl md:text-7xl font-bold mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -172,7 +172,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Our Mission</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Mission</h2>
               <div className="card-glow p-12 mirror-effect">
                 <p className="text-xl text-gray-300 leading-relaxed">
                   To democratize artificial intelligence by providing accessible, powerful, and ethical AI solutions that drive innovation across industries. We believe that AI should be a force for good, enhancing human capabilities while maintaining the highest standards of security and privacy.
@@ -194,7 +194,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">Our Vision</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-12">Our Vision</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <motion.div 
                   className="card-glow p-8 mirror-effect"
@@ -288,7 +288,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-cyan to-accent-green"></div>
+              <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-blue to-accent-blueMedium"></div>
               
               {timeline.map((item, index) => (
                 <motion.div
@@ -302,7 +302,7 @@ export default function AboutPage() {
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-accent-cyan rounded-full shadow-glow z-10"></div>
+                  <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-accent-blue rounded-full shadow-glow z-10"></div>
                   
                   {/* Content */}
                   <div className={`ml-16 md:ml-0 md:w-1/2 ${
@@ -312,7 +312,7 @@ export default function AboutPage() {
                       <div className="flex items-center mb-4">
                         <div className="text-2xl mr-4">{item.icon}</div>
                         <div>
-                          <div className="text-accent-cyan font-bold text-lg">{item.year}</div>
+                          <div className="text-accent-blue font-bold text-lg">{item.year}</div>
                           <h3 className="text-xl font-semibold text-white">{item.title}</h3>
                         </div>
                       </div>

@@ -103,19 +103,20 @@ export default function ContactPage() {
           <div className="container mx-auto px-4">
             <motion.div
               variants={containerVariants}
+              
               initial="hidden"
               animate="visible"
               className="text-center max-w-4xl mx-auto"
             >
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl md:text-6xl font-bold text-white mb-6 glow-text"
-              >
-                Get in{' '}
-                <span className="text-gradient-primary glow-text">
-                  Touch
-                </span>
-              </motion.h1>
+                             <motion.h1
+                 variants={itemVariants}
+                 className="text-4xl md:text-6xl font-bold text-white mb-6"
+               >
+                 Get in{' '}
+                 <span className="text-gradient-primary">
+                   Touch
+                 </span>
+               </motion.h1>
             
             <motion.p
               variants={itemVariants}
@@ -220,27 +221,31 @@ export default function ContactPage() {
                     <span className="text-2xl">📧</span>
                     <a href="mailto:contact@supeai.in" className="hover:text-accent-cyan transition">contact@supeai.in</a>
                   </div>
+                                     <div className="flex items-center text-gray-300 gap-2">
+                     <span className="text-2xl" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇮🇳</span>
+                     <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
+                     <span className="ml-2 text-xs text-accent-cyan">India</span>
+                   </div>
+                   <div className="flex items-center text-gray-300 gap-2">
+                     <span className="text-2xl" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇬🇧</span>
+                     <a href="tel:+447404465149" className="hover:text-accent-cyan transition">+44 7404 465149</a>
+                     <span className="ml-2 text-xs text-accent-cyan">UK/London</span>
+                   </div>
+                   <div className="flex items-center text-gray-300 gap-2">
+                     <span className="text-2xl" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇦🇺</span>
+                     <a href="tel:+61468371679" className="hover:text-accent-cyan transition">+61 468 371 679</a>
+                     <span className="ml-2 text-xs text-accent-cyan">Australia</span>
+                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">🇮🇳</span>
-                    <a href="tel:+918075851517" className="hover:text-accent-cyan transition">+91 8075851517</a>
-                    <span className="ml-2 text-xs text-accent-cyan">India</span>
-                  </div>
-                  <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">🇬🇧</span>
-                    <a href="tel:+447404465149" className="hover:text-accent-cyan transition">+44 7404 465149</a>
-                    <span className="ml-2 text-xs text-accent-cyan">UK/London</span>
-                  </div>
-                  <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">🇦🇺</span>
-                    <a href="tel:+61468371679" className="hover:text-accent-cyan transition">+61 468 371 679</a>
-                    <span className="ml-2 text-xs text-accent-cyan">Australia</span>
-                  </div>
-                  <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">💼</span>
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
                     <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">LinkedIn</a>
                   </div>
                   <div className="flex items-center text-gray-300 gap-2">
-                    <span className="text-2xl">💬</span>
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.264-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
                     <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan transition">Telegram</a>
                   </div>
                 </div>
@@ -249,12 +254,12 @@ export default function ContactPage() {
               {/* QR Code Section */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
                 <h3 className="text-xl font-bold text-white mb-4">Scan Location QR</h3>
-                <div className="bg-gradient-to-br from-[#50C878] to-[#98FF98] rounded-lg p-6 mb-4 flex flex-col items-center">
+                <div className="bg-gradient-to-br from-accent-blue to-accent-blueMedium rounded-lg p-6 mb-4 flex flex-col items-center">
                   <QRCodeSVG
                     value="https://maps.google.com/?q=Edappally+Kochi+Kerala+India"
                     size={160}
-                    bgColor="#014421"
-                    fgColor="#00FF41"
+                    bgColor="#0A0F1A"
+                    fgColor="#146EE9"
                     level="H"
                     includeMargin={true}
                   />
@@ -363,16 +368,16 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-white mb-8">Business Hours</h2>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Weekdays</h3>
-                  <p className="text-gray-300">Monday - Friday</p>
-                  <p className="text-green-400 font-semibold">9:00 AM - 6:00 PM</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Weekends</h3>
-                  <p className="text-gray-300">Saturday - Sunday</p>
-                  <p className="text-green-400 font-semibold">10:00 AM - 4:00 PM</p>
-                </div>
+                                 <div>
+                   <h3 className="text-xl font-semibold text-white mb-4">Weekdays</h3>
+                   <p className="text-gray-300">Monday - Friday</p>
+                   <p className="text-accent-blue font-semibold">9:00 AM - 6:00 PM</p>
+                 </div>
+                 <div>
+                   <h3 className="text-xl font-semibold text-white mb-4">Weekends</h3>
+                   <p className="text-gray-300">Saturday - Sunday</p>
+                   <p className="text-accent-blue font-semibold">10:00 AM - 4:00 PM</p>
+                 </div>
               </div>
             </div>
           </motion.div>

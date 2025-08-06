@@ -285,9 +285,9 @@ export default function Home() {
                 />
               </motion.div>
               <div className="flex flex-col">
-                <span className="text-white font-bold text-xl group-hover:text-[#146EE9] transition-colors glow-text">
-                  Supe AI
-                </span>
+                                 <span className="text-white font-bold text-xl group-hover:text-[#146EE9] transition-colors">
+                   Supe AI
+                 </span>
                 <span className="text-xs text-accent-blue mt-1 font-medium tracking-wide animate-pulse-slow">
                   Empowering Intelligence
                 </span>
@@ -348,41 +348,26 @@ export default function Home() {
             animate="visible"
             className="max-w-6xl mx-auto"
           >
-            {/* Enhanced Badge */}
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center px-6 py-3 bg-accent-blue/10 border border-accent-blue/20 rounded-full text-accent-blue text-sm font-medium mb-8 backdrop-blur-sm glow-effect"
-              whileHover={{ scale: 1.05, y: -2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <span className="w-2 h-2 bg-accent-blue rounded-full mr-2 animate-pulse glow-effect"></span>
-              AI-Powered Enterprise Solutions
-            </motion.div>
+                         {/* Enhanced Badge */}
+             <motion.div
+               variants={itemVariants}
+               className="inline-flex items-center px-6 py-3 bg-accent-blue/20 border border-accent-blue/40 rounded-full text-white text-sm font-semibold mb-8 backdrop-blur-sm"
+               whileHover={{ scale: 1.05, y: -2 }}
+               transition={{ duration: 0.3 }}
+             >
+               <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+               AI-Powered Enterprise Solutions
+             </motion.div>
 
-            {/* Enhanced Main Heading with Gradient Animation */}
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
-            >
-              <motion.span 
-                className="block glow-text"
-                animate={{ 
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
-                style={{
-                  background: 'linear-gradient(90deg, #146EE9, #285B95, #146EE9)',
-                  backgroundSize: '200% 200%',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Transforming
-              </motion.span>
-              <span className="block text-gradient-primary drop-shadow-lg glow-text">Enterprises</span>
-              <span className="block glow-text">with AI</span>
-            </motion.h1>
+                         {/* Main Heading */}
+             <motion.h1
+               variants={itemVariants}
+               className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
+             >
+               <span className="block">Transforming</span>
+               <span className="block">Enterprises</span>
+               <span className="block">with AI</span>
+             </motion.h1>
             
             {/* Animated Subheading */}
             <motion.div
@@ -401,51 +386,51 @@ export default function Home() {
               </motion.p>
             </motion.div>
 
-            {/* Enhanced CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative"
-              >
-                <Link
-                  href="/auth/signup"
-                  className="btn-primary inline-block neon-border"
-                >
-                  <span className="relative z-10">Get Started</span>
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative"
-              >
-                <Link
-                  href="/chat"
-                  className="btn-secondary inline-block holographic"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  Chat with AI
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative"
-              >
-                <Link
-                  href="/contact"
-                  className="btn-outline inline-block mirror-effect"
-                >
-                  Contact Us
-                </Link>
-              </motion.div>
-            </motion.div>
+                         {/* Enhanced CTA Buttons */}
+             <motion.div
+               variants={itemVariants}
+               className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+             >
+               <motion.div
+                 whileHover={{ scale: 1.05, y: -5 }}
+                 whileTap={{ scale: 0.95 }}
+                 className="relative"
+               >
+                 <Link
+                   href="/auth/signup"
+                   className="btn-primary inline-block"
+                 >
+                   <span className="relative z-10">Get Started</span>
+                 </Link>
+               </motion.div>
+               <motion.div
+                 whileHover={{ scale: 1.05, y: -5 }}
+                 whileTap={{ scale: 0.95 }}
+                 className="relative"
+               >
+                 <Link
+                   href="/chat"
+                   className="btn-primary inline-block"
+                 >
+                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                   </svg>
+                   Chat with AI
+                 </Link>
+               </motion.div>
+               <motion.div
+                 whileHover={{ scale: 1.05, y: -5 }}
+                 whileTap={{ scale: 0.95 }}
+                 className="relative"
+               >
+                 <Link
+                   href="/contact"
+                   className="btn-primary inline-block"
+                 >
+                   Contact Us
+                 </Link>
+               </motion.div>
+             </motion.div>
 
             {/* Enhanced Trust Indicators */}
             <motion.div
@@ -518,7 +503,9 @@ export default function Home() {
               </div>
                              <div className="flex-1 flex items-center justify-center">
                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-accent-blue to-accent-blueMedium flex items-center justify-center shadow-xl">
-                   <span className="text-7xl md:text-9xl">💼</span>
+                   <svg className="w-16 h-16 md:w-24 md:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                   </svg>
                  </div>
                </div>
             </div>
@@ -530,9 +517,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Our <span className="text-gradient-primary">Capabilities</span>
-            </h2>
+                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               Our Capabilities
+             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Discover how our AI solutions can transform your business operations
             </p>
@@ -672,9 +659,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              What Our <span className="text-gradient-primary">Clients Say</span>
-            </h2>
+                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               What Our Clients Say
+             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Trusted by industry leaders worldwide
             </p>
@@ -719,9 +706,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to <span className="text-gradient-primary">Transform</span> Your Business?
-            </h2>
+                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               Ready to Transform Your Business?
+             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Join hundreds of companies already using Supe AI to revolutionize their operations
             </p>
@@ -747,9 +734,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Get in <span className="text-gradient-primary">Touch</span>
-            </h2>
+                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+               Get in Touch
+             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Ready to transform your business? Let&apos;s start a conversation about how we can help you achieve your goals.
             </p>
@@ -779,7 +766,7 @@ export default function Home() {
                viewport={{ once: true }}
                className="card-glow p-6 text-center"
              >
-               <div className="text-4xl mb-4">🇮🇳</div>
+               <div className="text-4xl mb-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇮🇳</div>
                <h3 className="text-xl font-bold text-white mb-2">India Office</h3>
                <div className="flex flex-col items-center">
                                    <a href="tel:+918075851517" className="text-accent-blue hover:text-white transition-colors">
@@ -797,7 +784,7 @@ export default function Home() {
                viewport={{ once: true }}
                className="card-glow p-6 text-center"
              >
-               <div className="text-4xl mb-4">🇬🇧</div>
+               <div className="text-4xl mb-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇬🇧</div>
                <h3 className="text-xl font-bold text-white mb-2">UK/London</h3>
                                <a href="tel:+447404465149" className="text-accent-blue hover:text-white transition-colors">
                  +44 7404 465149
@@ -812,7 +799,7 @@ export default function Home() {
                viewport={{ once: true }}
                className="card-glow p-6 text-center"
              >
-               <div className="text-4xl mb-4">🇦🇺</div>
+               <div className="text-4xl mb-4" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Noto Color Emoji"' }}>🇦🇺</div>
                <h3 className="text-xl font-bold text-white mb-2">Australia</h3>
                                <a href="tel:+61468371679" className="text-accent-blue hover:text-white transition-colors">
                  +61 468 371 679
@@ -868,23 +855,27 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center"
-          >
-            <div className="flex justify-center space-x-6">
-                             <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-blue transition-colors">
-                 💼
+                     {/* Social Links */}
+           <motion.div
+             initial={{ opacity: 0, y: 40 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.8, delay: 0.9 }}
+             viewport={{ once: true }}
+             className="mt-12 text-center"
+           >
+             <div className="flex justify-center space-x-6">
+               <a href="https://www.linkedin.com/company/supe-ai/" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-blue transition-colors">
+                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                 </svg>
                </a>
                <a href="https://t.me/+UD-_HA-hjqYyYTc9" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-accent-blue transition-colors">
-                 💬
+                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.264-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                 </svg>
                </a>
-            </div>
-          </motion.div>
+             </div>
+           </motion.div>
         </div>
       </section>
 

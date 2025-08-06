@@ -127,7 +127,7 @@ export default function SignupPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-[#051A05] via-[#0A2A0A] to-[#051A05] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#0A0F1A] via-[#1A2332] to-[#0A0F1A] flex items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export default function SignupPage() {
                   style={{ maxHeight: '2.5rem', background: 'white' }}
                 />
               </motion.div>
-              <span className="text-white font-bold text-2xl group-hover:text-[#00FFC2] transition-colors">
+              <span className="text-white font-bold text-2xl group-hover:text-accent-blue transition-colors">
                 Supe AI
               </span>
             </Link>
@@ -176,7 +176,7 @@ export default function SignupPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -193,7 +193,7 @@ export default function SignupPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300"
                   placeholder="Enter your email"
                 />
               </div>
@@ -210,7 +210,7 @@ export default function SignupPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300"
                   placeholder="Enter your phone number"
                 />
               </div>
@@ -226,7 +226,7 @@ export default function SignupPage() {
                     onClick={() => handleChange({ target: { name: 'accountType', value: 'personal' } })}
                     className={`px-4 py-3 rounded-lg text-center transition-all duration-300 ${
                       formData.accountType === 'personal'
-                        ? 'bg-[#00FFC2] text-black font-semibold'
+                        ? 'bg-accent-blue text-white font-semibold'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
@@ -237,7 +237,7 @@ export default function SignupPage() {
                     onClick={() => handleChange({ target: { name: 'accountType', value: 'business' } })}
                     className={`px-4 py-3 rounded-lg text-center transition-all duration-300 ${
                       formData.accountType === 'business'
-                        ? 'bg-[#00FFC2] text-black font-semibold'
+                        ? 'bg-accent-blue text-white font-semibold'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
@@ -260,7 +260,7 @@ export default function SignupPage() {
                   onFocus={handlePasswordFocus}
                   onBlur={handlePasswordBlur}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300 pr-12"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300 pr-12"
                   placeholder="Create a password"
                 />
                 {/* Eye Icon */}
@@ -268,7 +268,7 @@ export default function SignupPage() {
                   type="button"
                   tabIndex={-1}
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan hover:text-[#00FFC2] focus:outline-none"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-blue hover:text-accent-blueMedium focus:outline-none"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? (
@@ -320,7 +320,7 @@ export default function SignupPage() {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00FFC2] focus:border-transparent transition-all duration-300 pr-12"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:border-transparent transition-all duration-300 pr-12"
                   placeholder="Confirm your password"
                 />
                 {/* Eye Icon */}
@@ -328,7 +328,7 @@ export default function SignupPage() {
                   type="button"
                   tabIndex={-1}
                   onClick={() => setShowConfirmPassword((v) => !v)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-cyan hover:text-[#00FFC2] focus:outline-none"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-accent-blue hover:text-accent-blueMedium focus:outline-none"
                   aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
                 >
                   {showConfirmPassword ? (
@@ -375,7 +375,7 @@ export default function SignupPage() {
                 disabled={loading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/90 text-black font-semibold py-3 px-6 rounded-lg hover:from-[#00FFC2]/90 hover:to-[#00FFC2] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                className="w-full bg-gradient-to-r from-accent-blue to-accent-blueMedium text-white font-semibold py-3 px-6 rounded-lg hover:from-accent-blueMedium hover:to-accent-blue transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
               >
                 {loading ? 'Creating Account...' : 'Create Account'}
               </motion.button>
@@ -383,7 +383,7 @@ export default function SignupPage() {
               {/* Login Link */}
               <p className="text-center text-gray-400">
                 Already have an account?{' '}
-                <Link href="/auth/login" className="text-[#00FFC2] hover:text-[#00FFC2]/80 transition-colors">
+                <Link href="/auth/login" className="text-accent-blue hover:text-accent-blueMedium transition-colors">
                   Sign in
                 </Link>
               </p>

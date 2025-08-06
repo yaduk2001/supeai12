@@ -32,7 +32,7 @@ export default function UserMenu() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2 bg-gradient-to-r from-[#00FFC2] to-[#00FFC2]/90 text-black font-semibold rounded-full hover:from-[#00FFC2]/90 hover:to-[#00FFC2] transition-all duration-300 shadow-lg"
+            className="px-6 py-2 bg-gradient-to-r from-accent-blue to-accent-blueMedium text-white font-semibold rounded-full hover:from-accent-blueMedium hover:to-accent-blue transition-all duration-300 shadow-lg"
           >
             Sign In
           </motion.button>
