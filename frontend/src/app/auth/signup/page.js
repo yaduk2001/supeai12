@@ -146,6 +146,7 @@ export default function SignupPage() {
                    className="w-full h-full"
                    width={40}
                    height={40}
+                   withZoom={true}
                  />
                </motion.div>
               <span className="text-white font-bold text-2xl group-hover:text-accent-blue transition-colors">

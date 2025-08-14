@@ -282,6 +282,7 @@ export default function Home() {
                    className="w-full h-full"
                    width={40}
                    height={40}
+                   withZoom={true}
                  />
                </motion.div>
               <div className="flex flex-col">
