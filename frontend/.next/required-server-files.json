@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "S:\\supe1.2\\supe1\\frontend",
+    "outputFileTracingRoot": "D:\\supe1.3\\supe1\\frontend",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -279,10 +279,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "S:\\supe1.2\\supe1\\frontend"
+      "root": "D:\\supe1.3\\supe1\\frontend"
     }
   },
-  "appDir": "S:\\supe1.2\\supe1\\frontend",
+  "appDir": "D:\\supe1.3\\supe1\\frontend",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

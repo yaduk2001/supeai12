@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import VideoLogo from './VideoLogo';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -74,19 +75,14 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <motion.div
-                className="w-[90%] h-[90%]"
-              >
-                <motion.img 
-                  src="/images/logo2.svg"
-                  alt="Supe AI Logo"
-                  className="w-full h-full object-contain transform transition-all duration-300"
-                  style={{ transform: 'scale(1.4)' }}
-                  animate={{
-                    scale: isHovered ? 1.55 : 1.4,
-                    rotate: isHovered ? 5 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
+              <motion.div className="w-[90%] h-[90%]">
+                <VideoLogo
+                  className="w-full h-full object-cover rounded-lg"
+                  style={{ transform: 'scale(1.0)' }}
+                  					sources={[
+						{ mp4: "/videos/Tpwhote.mp4" },
+						{ mp4: "/videos/SupeAI.mp4" }
+					]}
                 />
               </motion.div>
             </motion.div>

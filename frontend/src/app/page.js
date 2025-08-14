@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 import FuturisticBackground from '../components/FuturisticBackground';
 import UserMenu from '../components/UserMenu';
 import { useAuth } from '../contexts/AuthContext';
+import StaticLogo from '../components/StaticLogo';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -272,18 +273,17 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             {/* Enhanced Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
-              <motion.div 
-                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-blue shadow-lg glow-effect"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img 
-                  src="/images/logo2.svg" 
-                  alt="Supe AI Logo" 
-                  className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: '4.5rem', background: 'white', transform: 'scale(1.6)' }}
-                />
-              </motion.div>
+                             <motion.div 
+                 className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-blue shadow-lg glow-effect"
+                 whileHover={{ scale: 1.05, rotate: 5 }}
+                 transition={{ duration: 0.3 }}
+               >
+                 <StaticLogo
+                   className="w-full h-full"
+                   width={40}
+                   height={40}
+                 />
+               </motion.div>
               <div className="flex flex-col">
                                  <span className="text-white font-bold text-xl group-hover:text-[#146EE9] transition-colors">
                    Supe AI

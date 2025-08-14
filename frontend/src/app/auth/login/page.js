@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import Navbar from '../../../components/Navbar';
+import StaticLogo from '../../../components/StaticLogo';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -66,17 +67,16 @@ export default function LoginPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6 group">
-              <motion.div 
-                className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img 
-                  src="/images/logo2.svg" 
-                  alt="Supe AI Logo" 
-                  className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: '2.5rem', background: 'white' }}
-                />
-              </motion.div>
+                             <motion.div 
+                 className="w-10 h-10 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-accent-cyan shadow-lg"
+                 whileHover={{ scale: 1.05 }}
+               >
+                 <StaticLogo
+                   className="w-full h-full"
+                   width={40}
+                   height={40}
+                 />
+               </motion.div>
               <span className="text-white font-bold text-2xl group-hover:text-accent-blue transition-colors">
                 Supe AI
               </span>
